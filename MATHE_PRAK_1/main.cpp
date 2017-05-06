@@ -45,7 +45,7 @@ double g(vec _x){
 
 vec gradient(vec _x, double (*funktion)(vec x)){
 vec res(_x.gsize());
-
+//TODO AUF 2
     for (int i = 0; i < res.gsize(); ++i) {
         res.at(i) = (f() -f(_x) )/h;
     }
@@ -114,7 +114,7 @@ int main() {
             }
 
         }else if(func_call(xfn) <= func_call(xf)){
-
+//TODO AUF 3
 
 
         }

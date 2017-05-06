@@ -33,13 +33,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="161">
+              <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#282#332#0" expanded="true" />
+                <element signature="e#1028#1076#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,25 +57,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vec.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vec.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vec.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="151" column="5" lean-forward="true" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
+            <state relative-caret-position="285">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding>
                 <element signature="e#70#318#0" expanded="false" />
                 <element signature="e#321#689#0" expanded="false" />
-                <element signature="e#692#838#0" expanded="false" />
-                <element signature="e#840#1394#0" expanded="false" />
-                <element signature="e#1396#2242#0" expanded="false" />
-                <element signature="e#2252#2527#0" expanded="false" />
-                <element signature="e#2529#2593#0" expanded="false" />
-                <element signature="e#2603#2857#0" expanded="false" />
-                <element signature="e#2859#3137#0" expanded="false" />
-                <element signature="e#3139#3316#0" expanded="false" />
-                <element signature="e#3326#3590#0" expanded="false" />
-                <element signature="e#3592#3630#0" expanded="false" />
-                <element signature="e#3640#3806#0" expanded="false" />
+                <element signature="e#869#1423#0" expanded="false" />
+                <element signature="e#1425#2271#0" expanded="false" />
+                <element signature="e#2281#2556#0" expanded="false" />
+                <element signature="e#2558#2622#0" expanded="false" />
+                <element signature="e#2632#2886#0" expanded="false" />
+                <element signature="e#2888#3166#0" expanded="false" />
+                <element signature="e#3168#3345#0" expanded="false" />
+                <element signature="e#3355#3619#0" expanded="false" />
+                <element signature="e#3621#3659#0" expanded="false" />
+                <element signature="e#3669#3835#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -84,9 +85,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/vec.h" />
         <option value="$PROJECT_DIR$/vec.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -395,12 +396,12 @@
       <updated>1494069074727</updated>
       <workItem from="1494069084142" duration="119000" />
       <workItem from="1494069214933" duration="10002000" />
-      <workItem from="1494092762503" duration="3816000" />
+      <workItem from="1494092762503" duration="8653000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13937000" />
+    <option name="totallyTimeSpent" value="18774000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="731" extended-state="0" />
@@ -467,6 +468,8 @@
           <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#282#332#0" expanded="true" />
+            <element signature="e#1028#1076#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -486,17 +489,16 @@
           <folding>
             <element signature="e#70#318#0" expanded="false" />
             <element signature="e#321#689#0" expanded="false" />
-            <element signature="e#692#838#0" expanded="false" />
-            <element signature="e#840#1394#0" expanded="false" />
-            <element signature="e#1396#2242#0" expanded="false" />
-            <element signature="e#2252#2527#0" expanded="false" />
-            <element signature="e#2529#2593#0" expanded="false" />
-            <element signature="e#2603#2857#0" expanded="false" />
-            <element signature="e#2859#3137#0" expanded="false" />
-            <element signature="e#3139#3316#0" expanded="false" />
-            <element signature="e#3326#3590#0" expanded="false" />
-            <element signature="e#3592#3630#0" expanded="false" />
-            <element signature="e#3640#3806#0" expanded="false" />
+            <element signature="e#869#1423#0" expanded="false" />
+            <element signature="e#1425#2271#0" expanded="false" />
+            <element signature="e#2281#2556#0" expanded="false" />
+            <element signature="e#2558#2622#0" expanded="false" />
+            <element signature="e#2632#2886#0" expanded="false" />
+            <element signature="e#2888#3166#0" expanded="false" />
+            <element signature="e#3168#3345#0" expanded="false" />
+            <element signature="e#3355#3619#0" expanded="false" />
+            <element signature="e#3621#3659#0" expanded="false" />
+            <element signature="e#3669#3835#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -515,6 +517,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#282#332#0" expanded="true" />
+            <element signature="e#1028#1076#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -536,16 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vec.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-181">
@@ -556,22 +550,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vec.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="151" column="5" lean-forward="true" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
+        <state relative-caret-position="285">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="e#70#318#0" expanded="false" />
             <element signature="e#321#689#0" expanded="false" />
-            <element signature="e#692#838#0" expanded="false" />
-            <element signature="e#840#1394#0" expanded="false" />
-            <element signature="e#1396#2242#0" expanded="false" />
-            <element signature="e#2252#2527#0" expanded="false" />
-            <element signature="e#2529#2593#0" expanded="false" />
-            <element signature="e#2603#2857#0" expanded="false" />
-            <element signature="e#2859#3137#0" expanded="false" />
-            <element signature="e#3139#3316#0" expanded="false" />
-            <element signature="e#3326#3590#0" expanded="false" />
-            <element signature="e#3592#3630#0" expanded="false" />
-            <element signature="e#3640#3806#0" expanded="false" />
+            <element signature="e#869#1423#0" expanded="false" />
+            <element signature="e#1425#2271#0" expanded="false" />
+            <element signature="e#2281#2556#0" expanded="false" />
+            <element signature="e#2558#2622#0" expanded="false" />
+            <element signature="e#2632#2886#0" expanded="false" />
+            <element signature="e#2888#3166#0" expanded="false" />
+            <element signature="e#3168#3345#0" expanded="false" />
+            <element signature="e#3355#3619#0" expanded="false" />
+            <element signature="e#3621#3659#0" expanded="false" />
+            <element signature="e#3669#3835#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#282#332#0" expanded="true" />
+            <element signature="e#1028#1076#0" expanded="true" />
           </folding>
         </state>
       </provider>

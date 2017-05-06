@@ -33,9 +33,11 @@ vec::vec(const char* _fmt,...){
 
 
 void vec::print(){
+    std::cout << " { ";
     for (int i = 0; i < data_storage.size(); ++i) {
-std::cout << i << " | " << data_storage.at(i) << " | " <<std::endl;
+std::cout << data_storage[i] << ", ";
     }
+    std::cout << "}" << std::endl;
 }
 
 int vec::set_value(u_int16_t _pos, const VEC_TYPE _val){

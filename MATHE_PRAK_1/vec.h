@@ -9,7 +9,7 @@
 #include <vector>
 #include <stdio.h>
 #include <stdarg.h>
-
+#include <math.h>
 
 #define VEC_TYPE double
 #define VEC_INIT_SITE 15
@@ -33,6 +33,9 @@ public:
     vec operator+ (vec& _other);
     vec operator*(VEC_TYPE _lam);
     u_int16_t gsize();
+
+    VEC_TYPE length();
+
 private:
     u_int16_t  size;
     std::vector<VEC_TYPE> data_storage;

@@ -27,8 +27,8 @@ double g(vec _x){
 
 
 
-vec gradient(vec _x, double (*funktion)(vec x)){
-
+vec gradient(double& schritt,vec _x, double (*funktion)(vec x)){
+//xneu =⃗x+λ·gradf(⃗x)
 
 }
 
@@ -60,6 +60,6 @@ int main() {
 
 
 
-    
+
     return 0;
 }

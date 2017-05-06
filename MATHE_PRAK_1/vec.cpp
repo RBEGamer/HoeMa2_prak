@@ -148,3 +148,11 @@ VEC_TYPE vec::operator[] (u_int16_t _pos){
 u_int16_t vec::gsize(){
 return size;
 }
+
+VEC_TYPE vec::length(){
+    VEC_TYPE sum = 0.0f;
+    for (int i = 0; i < data_storage.size(); ++i) {
+        sum += pow(data_storage.at(i),2.0);
+    }
+    return sqrt(sum);
+}

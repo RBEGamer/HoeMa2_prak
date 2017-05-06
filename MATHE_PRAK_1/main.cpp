@@ -1,8 +1,29 @@
 #include <iostream>
 
 #include "vec.h"
-
+#include <math.h>
 //#define VEC_UNITTEST
+
+
+const double h = 0.0000001;
+
+
+
+
+//sin(x+y2)+y3 −6y2 +9y
+double f(vec _x){
+    double x = _x[0];
+    double y = _x[1];
+return sin(x + pow(y,2.0)) + pow(y,3.0) - (6*pow(y,2.0)) + (9*y);
+}
+
+//2x21 − 2x1x2 + x2 + x23 − 2x1 − 4x3,
+double g(vec _x){
+    double x1 = _x[0];
+    double x2 = _x[1];
+    double x3 = _x[2];
+    return -((2*pow(x1,2.0))  -(2*x1*x2)  +pow(x2,2.0) +pow(x3,2.0) -(2*x1) -(4*x3));
+}
 
 
 
@@ -26,8 +47,7 @@ int main() {
     res2.print();
 #endif
 
-
-
+   vec start_f("dd", 2.0,3.0);
 
     return 0;
 }

@@ -21,7 +21,7 @@ class vec {
 
 
 public:
-
+    vec(const char* _fmt,...);
     vec(const u_int16_t _size);
     void print();
     int set_value(u_int16_t _pos, const VEC_TYPE _val);

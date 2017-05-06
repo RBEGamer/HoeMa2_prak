@@ -43,10 +43,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/marcelochsendorf/Desktop/MATHE_PRAK_1
+CMAKE_SOURCE_DIR = /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/MATHE_PRAK_1.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/MATHE_PRAK_1.dir/flags.make
 
 CMakeFiles/MATHE_PRAK_1.dir/main.cpp.o: CMakeFiles/MATHE_PRAK_1.dir/flags.make
 CMakeFiles/MATHE_PRAK_1.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/marcelochsendorf/Desktop/MATHE_PRAK_1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MATHE_PRAK_1.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MATHE_PRAK_1.dir/main.cpp.o -c /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MATHE_PRAK_1.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MATHE_PRAK_1.dir/main.cpp.o -c /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/main.cpp
 
 CMakeFiles/MATHE_PRAK_1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MATHE_PRAK_1.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/main.cpp > CMakeFiles/MATHE_PRAK_1.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/main.cpp > CMakeFiles/MATHE_PRAK_1.dir/main.cpp.i
 
 CMakeFiles/MATHE_PRAK_1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MATHE_PRAK_1.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/main.cpp -o CMakeFiles/MATHE_PRAK_1.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/main.cpp -o CMakeFiles/MATHE_PRAK_1.dir/main.cpp.s
 
 CMakeFiles/MATHE_PRAK_1.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/MATHE_PRAK_1.dir/main.cpp.o.provides.build: CMakeFiles/MATHE_PRAK_1.d
 
 CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.o: CMakeFiles/MATHE_PRAK_1.dir/flags.make
 CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.o: ../vec.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/marcelochsendorf/Desktop/MATHE_PRAK_1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.o -c /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/vec.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.o -c /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/vec.cpp
 
 CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/vec.cpp > CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/vec.cpp > CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.i
 
 CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/vec.cpp -o CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/vec.cpp -o CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.s
 
 CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.o.requires:
 
@@ -117,7 +117,7 @@ MATHE_PRAK_1: CMakeFiles/MATHE_PRAK_1.dir/main.cpp.o
 MATHE_PRAK_1: CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.o
 MATHE_PRAK_1: CMakeFiles/MATHE_PRAK_1.dir/build.make
 MATHE_PRAK_1: CMakeFiles/MATHE_PRAK_1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/marcelochsendorf/Desktop/MATHE_PRAK_1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MATHE_PRAK_1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MATHE_PRAK_1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MATHE_PRAK_1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -135,6 +135,6 @@ CMakeFiles/MATHE_PRAK_1.dir/clean:
 .PHONY : CMakeFiles/MATHE_PRAK_1.dir/clean
 
 CMakeFiles/MATHE_PRAK_1.dir/depend:
-	cd /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/marcelochsendorf/Desktop/MATHE_PRAK_1 /Users/marcelochsendorf/Desktop/MATHE_PRAK_1 /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/cmake-build-debug /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/cmake-build-debug /Users/marcelochsendorf/Desktop/MATHE_PRAK_1/cmake-build-debug/CMakeFiles/MATHE_PRAK_1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1 /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1 /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug/CMakeFiles/MATHE_PRAK_1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/MATHE_PRAK_1.dir/depend
 

@@ -14,6 +14,24 @@ std::cout <<"size "<< _size <<std::endl;
     }
 }
 
+
+vec::vec(const char* _fmt,...){
+    data_storage.reserve(VEC_INIT_SITE);
+    data_storage.clear();
+    va_list args;
+    va_start(args, _fmt);
+    int counter = 0;
+    while (*_fmt != '\0') {
+        VEC_TYPE d = va_arg(args, VEC_TYPE);
+            data_storage.push_back(d);
+        ++_fmt;
+        counter++;
+    }
+    va_end(args);
+    size = data_storage.size();
+}
+
+
 void vec::print(){
     for (int i = 0; i < data_storage.size(); ++i) {
 std::cout << i << " | " << data_storage.at(i) << " | " <<std::endl;

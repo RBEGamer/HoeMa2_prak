@@ -47,7 +47,19 @@ int main() {
     res2.print();
 #endif
 
-   vec start_f("dd", 2.0,3.0);
+    vec start_f("dd", 2.0,3.0);
+    vec start_g("ddd", 0.0,0.0, 0.0);
+    double schritt_f = 1.0;
+    double schritt_g = 0.1;
 
+
+
+
+
+
+
+
+
+    
     return 0;
 }

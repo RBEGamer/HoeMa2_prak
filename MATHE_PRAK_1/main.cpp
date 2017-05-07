@@ -115,12 +115,17 @@ int main() {
 
         }else if(func_call(xfn) <= func_call(xf)){
 //TODO AUF 3
-
-
+            std::cout << "enter habierungsloop:" << schritt_f << std::endl;
+            //solange xneu > xalt
+        while(!(func_call(xfn) > func_call(xf))){
+            schritt_f *= 0.5;
+            std::cout << "halbiere schrittweite :" << schritt_f << std::endl;
+            tmp_001 = res_grad*schritt_f;
+            vec xfn = xf +tmp_001;
         }
-
+            std::cout << "neue x fach halbierte schrittweite gefunden  exit loop :" << schritt_f << std::endl;
+        }
     break;
-
     }
 
 

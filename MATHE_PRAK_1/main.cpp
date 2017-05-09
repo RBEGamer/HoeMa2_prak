@@ -114,18 +114,18 @@ int main() {
         if(f(xf) < f(xfn)){
 		   
             std::cout << "Teste mit doppelter schrittweite" << std::endl;
-            vec tmp_002 = gradient(xf,func_call_name)*(2*schritt_f);
+            vec tmp_002 = gradient(xf,func_call_name)*(2.0*schritt_f);
             vec xtest = xf + tmp_002;
             xtest.print();
             std::cout << "f(xtest)" << func_call(xtest)<<std::endl;
             if(func_call(xtest) > func_call(xfn)){
-             schritt_f += 2.0f;
+             schritt_f *= 2.0;
                 std::cout << "verdopple schrittweite" << std::endl;
+			   xf = xfn;
             }else{
                 std::cout << "behalte alte schrittweite" << std::endl;
                 xf = xfn; //setzt neues x
             }
-
         }
 		
 		else {
@@ -136,10 +136,11 @@ int main() {
             schritt_f *= 0.5;
             std::cout << "halbiere schrittweite :" << schritt_f << std::endl;
             tmp_001 = res_grad*schritt_f;
-		    xfn = xf +tmp_001;
+		     xfn = xf +tmp_001;
         }
             std::cout << "neue x fach halbierte schrittweite gefunden  exit loop :" << schritt_f << std::endl;
-        }
+            xf=xfn;
+		}
     
     }
    

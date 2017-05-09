@@ -30,12 +30,15 @@ vec::vec(const char* _fmt,...){
     size = data_storage.size();
 }
 
-void vec::print(){
-    std::cout << " { ";
+void vec::print(std::ofstream* _file){
+
+    if(_file == nullptr){return;}
+
+   *_file << " { ";
     for (int i = 0; i < data_storage.size(); ++i) {
-std::cout << data_storage[i] << ", ";
+*_file << data_storage[i] << ", ";
     }
-    std::cout << "}" << std::endl;
+    *_file << "}" << std::endl;
 }
 
 int vec::set_value(u_int16_t _pos, const double _val){

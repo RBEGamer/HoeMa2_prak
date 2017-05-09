@@ -15,6 +15,10 @@ math.h
 -
 limits
 -
+fstream
+-
+iomanip
+-
 
 /home/marcel/Desktop/HoeMa2_prak/MATHE_PRAK_1/vec.cpp
 vec.h
@@ -30,5 +34,9 @@ stdio.h
 stdarg.h
 -
 math.h
+-
+fstream
+-
+iomanip
 -
 

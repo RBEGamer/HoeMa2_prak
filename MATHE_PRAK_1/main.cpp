@@ -3,25 +3,29 @@
 #include "vec.h"
 #include <math.h>
 #include <limits>
-
+#include <fstream>
+#include <iomanip>
 
 const double h = (0.0000001);
 const double break_con = 0.0001;
 #define MAX_STEPS 50
 
 
-//#define USE_F
-#define USE_G
+
+#define USE_F
+//#define USE_G
 
 
 #ifdef USE_F
 #define func_call(a) f(a)
 #define func_call_name f
+#define func_call_name_string "f"
 #endif
 
 #ifdef USE_G
 #define func_call(a) g(a)
 #define func_call_name g
+#define func_call_name_string "g"
 #endif
 
 
@@ -44,6 +48,14 @@ double g(vec _x){
 #endif
 
 
+
+
+#define OUT_FILE_PATH "output_" func_call_name_string ".txt"
+
+
+
+
+
 vec gradient(vec _x, double (*funktion)(vec x)){
 vec res(_x.gsize());
 
@@ -62,6 +74,20 @@ bool equalityTestDouble(double oldVector,double newVektor){
 
 
 int main() {
+using namespace std;
+    //INIT FILE STUFF
+    ofstream file;
+    file.open(OUT_FILE_PATH,fstream::out);
+    if(file.fail()){
+        std::cout << "FILE OPEN FAILED" << std::endl;
+        return -1;
+    }
+
+
+
+
+
+
     double schritt_f = 1.0;
 
 #ifdef USE_F
@@ -81,20 +107,20 @@ int main() {
 
     for (int i = 0; i <= MAX_STEPS; ++i) {
 
-        std::cout << "------ STEP " << (i) << "------"<<std::endl;
-        std::cout << "x = ";xf.print();
+        file << "------ STEP " << (i) << "------"<<std::endl;
+        file << "x = ";xf.print(&file);
 
-        std::cout << "schritt " << schritt_f << std::endl;
+        file << "schritt " << schritt_f << std::endl;
 
         func_val = func_call(xf);
-        std::cout << "f(x)=" << func_val << std::endl;
+        file << "f(x)=" << func_val << std::endl;
 
 	    res_grad = gradient(xf,func_call_name);
 
-        std::cout << "grad func(x)";
-        res_grad.print();
+        file << "grad func(x)";
+        res_grad.print(&file);
 
-        std::cout << "| grad func(x) | = " << res_grad.length() << std::endl;
+        file << "| grad func(x) | = " << res_grad.length() << std::endl;
 
         //HERE BREAK COND CHECK
         if(fabs(res_grad.length()) <= break_con){break;}
@@ -104,45 +130,41 @@ int main() {
         vec tmp_001 = res_grad*schritt_f;
 	    xfn = xf +tmp_001;
 
-        std::cout << "x_neu = ";
-        xfn.print();
+        file << "x_neu = ";
+        xfn.print(&file);
 	   double newf = func_call(xfn);
-	   std::cout << "func(xneu)=" << newf ;
+        file << "func(xneu)=" << newf ;
    
-	   
-	   
+
         if(func_call(xf) < func_call(xfn)){
-		   
-            std::cout << "Teste mit doppelter schrittweite" << std::endl;
+            file << "Teste mit doppelter schrittweite" << std::endl;
             vec tmp_002 = gradient(xf,func_call_name)*(2.0*schritt_f);
             vec xtest = xf + tmp_002;
-            xtest.print();
-            std::cout << "f(xtest)" << func_call(xtest)<<std::endl;
+            xtest.print(&file);
+            file << "f(xtest)" << func_call(xtest)<<std::endl;
             if(func_call(xtest) > func_call(xfn)){
              schritt_f *= 2.0;
-                std::cout << "verdopple schrittweite" << std::endl;
+                file << "verdopple schrittweite" << std::endl;
 			   xf = xtest;
             }else{
-                std::cout << "behalte alte schrittweite" << std::endl;
+                file << "behalte alte schrittweite" << std::endl;
                 xf = xfn; //setzt neues x
             }
-        }
-		
-		else {
-            std::cout << "enter habierungsloop:" << schritt_f << std::endl;
+        }else {
+            file << "enter habierungsloop:" << schritt_f << std::endl;
             //solange xneu > xalt
-		   
         while(func_call(xfn) < func_call(xf) || equalityTestDouble(func_call(xf),func_call(xfn)) ){
             schritt_f *= 0.5;
-            std::cout << "halbiere schrittweite :" << schritt_f << std::endl;
+            file << "halbiere schrittweite :" << schritt_f << std::endl;
             tmp_001 = res_grad*schritt_f;
 		     xfn = xf +tmp_001;
         }
-            std::cout << "neue x fach halbierte schrittweite gefunden  exit loop :" << schritt_f << std::endl;
+            file << "neue x fach halbierte schrittweite gefunden  exit loop :" << schritt_f << std::endl;
             xf=xfn;
 		}
-    
+        file << std::endl <<std::endl;
     }
-   
+
+    file.close();
     return 0;
 }

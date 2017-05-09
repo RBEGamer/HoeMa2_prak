@@ -10,6 +10,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <math.h>
+#include <fstream>
+#include <iomanip>
 
 
 #define VEC_INIT_SITE 15
@@ -24,7 +26,7 @@ public:
     vec(const char* _fmt,...);
     vec(const u_int16_t _size);
 	vec(void);
-    void print();
+    void print(std::ofstream* _file);
     int set_value(u_int16_t _pos, const double _val);
     int set_row_values(const char* _fmt,...);
     double get_val(u_int16_t _pos);

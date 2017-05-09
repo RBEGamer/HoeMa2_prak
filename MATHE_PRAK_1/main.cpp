@@ -5,7 +5,7 @@
 #include <limits>
 
 
-const double h = 0.0000001;
+const double h = (0.0000001);
 const double break_con = 0.0001;
 #define MAX_STEPS 50
 
@@ -79,9 +79,9 @@ int main() {
    vec xfn=xf;
    vec res_grad;
 
-    for (int i = 0; i < MAX_STEPS; ++i) {
+    for (int i = 0; i <= MAX_STEPS; ++i) {
 
-        std::cout << "------ STEP " << (i+1) << "------"<<std::endl;
+        std::cout << "------ STEP " << (i) << "------"<<std::endl;
         std::cout << "x = ";xf.print();
 
         std::cout << "schritt " << schritt_f << std::endl;
@@ -121,7 +121,7 @@ int main() {
             if(func_call(xtest) > func_call(xfn)){
              schritt_f *= 2.0;
                 std::cout << "verdopple schrittweite" << std::endl;
-			   xf = xfn;
+			   xf = xtest;
             }else{
                 std::cout << "behalte alte schrittweite" << std::endl;
                 xf = xfn; //setzt neues x

@@ -2,7 +2,7 @@
 
 #include "vec.h"
 #include <math.h>
-#include <limits>
+
 
 
 const double h = 0.0000001;
@@ -56,11 +56,6 @@ return res;
 }
 
 
-bool equalityTestDouble(double oldVector,double newVektor){
-   return (fabs(newVektor - oldVector) < std::numeric_limits<double>::epsilon());
-};
-
-
 int main() {
     double schritt_f = 1.0;
 
@@ -74,10 +69,9 @@ int main() {
 #endif
 
 
-   
-   double func_val = 0.0;
-   vec xfn=xf;
-   vec res_grad;
+
+    double func_val = 0.0;
+
 
     for (int i = 0; i < MAX_STEPS; ++i) {
 
@@ -87,9 +81,9 @@ int main() {
         std::cout << "schritt " << schritt_f << std::endl;
 
         func_val = func_call(xf);
-        std::cout << "f(x)=" << func_val << std::endl;
+        std::cout << "f(x)" << func_val << std::endl;
 
-	    res_grad = gradient(xf,func_call_name);
+        vec res_grad = gradient(xf,func_call_name);
 
         std::cout << "grad func(x)";
         res_grad.print();
@@ -102,16 +96,23 @@ int main() {
 
         //calc new x
         vec tmp_001 = res_grad*schritt_f;
-	    xfn = xf +tmp_001;
+        vec xfn = xf +tmp_001;
 
         std::cout << "x_neu = ";
         xfn.print();
-	   double newf = f(xfn);
-	   std::cout << "func(xneu)=" << newf ;
+        std::cout << "func(xneu)=" << func_call(xfn);
    
+	   bool test = true;
+	   test = f(xf) > f(xfn);
+	   
+	   std::cout << test;
+	   
+	   bool test2= false;
+	   
+	   test2=f(xfn) > f(xf);
 	   
 	   
-        if(f(xf) < f(xfn)){
+        if(test){
 		   
             std::cout << "Teste mit doppelter schrittweite" << std::endl;
             vec tmp_002 = gradient(xf,func_call_name)*(2*schritt_f);
@@ -132,7 +133,7 @@ int main() {
             std::cout << "enter habierungsloop:" << schritt_f << std::endl;
             //solange xneu > xalt
 		   
-        while(f(xfn) < f(xf) || equalityTestDouble(f(xf),f(xfn)) ){
+        while(f(xfn) < f(xf)){
             schritt_f *= 0.5;
             std::cout << "halbiere schrittweite :" << schritt_f << std::endl;
             tmp_001 = res_grad*schritt_f;
@@ -140,7 +141,7 @@ int main() {
         }
             std::cout << "neue x fach halbierte schrittweite gefunden  exit loop :" << schritt_f << std::endl;
         }
-    
+    break;
     }
    
     return 0;

@@ -158,7 +158,3 @@ VEC_TYPE vec::length(){
     }
     return sqrt(sum);
 }
-
-vec::vec(void) {
-
-}

@@ -14,7 +14,6 @@ vec::vec(const u_int16_t _size){
     }
 }
 
-
 vec::vec(const char* _fmt,...){
     data_storage.reserve(VEC_INIT_SITE);
     data_storage.clear();
@@ -22,7 +21,7 @@ vec::vec(const char* _fmt,...){
     va_start(args, _fmt);
     int counter = 0;
     while (*_fmt != '\0') {
-        VEC_TYPE d = va_arg(args, VEC_TYPE);
+        double d = va_arg(args, double);
             data_storage.push_back(d);
         ++_fmt;
         counter++;
@@ -30,7 +29,6 @@ vec::vec(const char* _fmt,...){
     va_end(args);
     size = data_storage.size();
 }
-
 
 void vec::print(){
     std::cout << " { ";
@@ -40,7 +38,7 @@ std::cout << data_storage[i] << ", ";
     std::cout << "}" << std::endl;
 }
 
-int vec::set_value(u_int16_t _pos, const VEC_TYPE _val){
+int vec::set_value(u_int16_t _pos, const double _val){
     //cehck size
     if(data_storage.size() == 0){
 #ifdef VEC_WARNING
@@ -72,7 +70,7 @@ int vec::set_row_values(const char* _fmt,...){
             printf("%f\n", d);
         }else if (*_fmt == 'f') {
             float d = va_arg(args, float);
-            data_storage.at(counter) = (VEC_TYPE)d;
+            data_storage.at(counter) = (double)d;
             printf("%f\n", d);
         }else{
                 #ifdef VEC_WARNING
@@ -88,7 +86,7 @@ int vec::set_row_values(const char* _fmt,...){
     return 0;
 }
 
-VEC_TYPE vec::get_val(u_int16_t _pos){
+double vec::get_val(u_int16_t _pos){
     //cehck size
     if(_pos >= data_storage.size()){
 #ifdef VEC_WARNING
@@ -99,11 +97,11 @@ VEC_TYPE vec::get_val(u_int16_t _pos){
 return data_storage.at(_pos);
 }
 
-std::vector<VEC_TYPE> vec::get_val_row(){
+std::vector<double> vec::get_val_row(){
 return data_storage;
 }
 
-VEC_TYPE& vec::at(u_int16_t _pos){
+double& vec::at(u_int16_t _pos){
     if(_pos >= data_storage.size()){
 #ifdef VEC_WARNING
         std::cout << __FILE__ << ":" << __LINE__ << "->" << "get_val out of range" << std::endl;
@@ -127,7 +125,7 @@ vec vec::operator+ (vec& _other){
     return tmp;
 }
 
-vec vec::operator* (VEC_TYPE _lam){
+vec vec::operator* (double _lam){
     vec tmp(this->gsize());
     for (int i = 0; i < tmp.gsize(); ++i) {
     tmp.set_value(i, this->get_val(i)*_lam);
@@ -135,7 +133,7 @@ vec vec::operator* (VEC_TYPE _lam){
     return  tmp;
 }
 
-VEC_TYPE vec::operator[] (u_int16_t _pos){
+double vec::operator[] (u_int16_t _pos){
     if(_pos >= data_storage.size()){
 #ifdef VEC_WARNING
         std::cout << __FILE__ << ":" << __LINE__ << "->" << "op[] out of range" << std::endl;
@@ -151,8 +149,8 @@ u_int16_t vec::gsize(){
 return size;
 }
 
-VEC_TYPE vec::length(){
-    VEC_TYPE sum = 0.0f;
+double vec::length(){
+    double sum = 0.0f;
     for (int i = 0; i < data_storage.size(); ++i) {
         sum += pow(data_storage.at(i),2.0);
     }

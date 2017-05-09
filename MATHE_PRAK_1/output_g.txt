@@ -1,0 +1,283 @@
+------ STEP 0------
+x =  { 0, 0, 0, }
+schritt 0.1
+f(x)=-0
+grad func(x) { 2, -1e-07, 4, }
+| grad func(x) | = 4.47214
+x_neu =  { 0.2, -1e-08, 0.4, }
+func(xneu)=1.76Teste mit doppelter schrittweite
+ { 0.4, -2e-08, 0.8, }
+f(xtest)3.04
+verdopple schrittweite
+------ STEP 1------
+x =  { 0.4, -2e-08, 0.8, }
+schritt 0.2
+f(x)=3.04
+grad func(x) { 0.4, 0.8, 2.4, }
+| grad func(x) | = 2.56125
+x_neu =  { 0.48, 0.16, 1.28, }
+func(xneu)=4.1088Teste mit doppelter schrittweite
+ { 0.56, 0.32, 1.76, }
+f(xtest)4.6912
+verdopple schrittweite
+------ STEP 2------
+x =  { 0.56, 0.32, 1.76, }
+schritt 0.4
+f(x)=4.6912
+grad func(x) { 0.4, 0.48, 0.48, }
+| grad func(x) | = 0.787909
+x_neu =  { 0.72, 0.512, 1.952, }
+func(xneu)=4.87603Teste mit doppelter schrittweite
+ { 0.88, 0.704, 2.144, }
+f(xtest)4.93389
+verdopple schrittweite
+------ STEP 3------
+x =  { 0.88, 0.704, 2.144, }
+schritt 0.8
+f(x)=4.93389
+grad func(x) { -0.112, 0.352, -0.288, }
+| grad func(x) | = 0.468393
+x_neu =  { 0.7904, 0.9856, 1.9136, }
+func(xneu)=4.9105enter habierungsloop:0.8
+halbiere schrittweite :0.4
+neue x fach halbierte schrittweite gefunden  exit loop :0.4
+------ STEP 4------
+x =  { 0.8352, 0.8448, 2.0288, }
+schritt 0.4
+f(x)=4.97192
+grad func(x) { 0.3488, -0.0192, -0.0576, }
+| grad func(x) | = 0.354045
+x_neu =  { 0.97472, 0.83712, 2.00576, }
+func(xneu)=4.98039Teste mit doppelter schrittweite
+ { 1.11424, 0.82944, 1.98272, }
+f(xtest)4.90554
+behalte alte schrittweite
+------ STEP 5------
+x =  { 0.97472, 0.83712, 2.00576, }
+schritt 0.4
+f(x)=4.98039
+grad func(x) { -0.22464, 0.2752, -0.01152, }
+| grad func(x) | = 0.355431
+x_neu =  { 0.884864, 0.9472, 2.00115, }
+func(xneu)=4.98286Teste mit doppelter schrittweite
+ { 0.795008, 1.05728, 1.99654, }
+f(xtest)4.88918
+behalte alte schrittweite
+------ STEP 6------
+x =  { 0.884864, 0.9472, 2.00115, }
+schritt 0.4
+f(x)=4.98286
+grad func(x) { 0.354944, -0.124672, -0.002304, }
+| grad func(x) | = 0.37621
+x_neu =  { 1.02684, 0.897331, 2.00023, }
+func(xneu)=4.98251enter habierungsloop:0.4
+halbiere schrittweite :0.2
+neue x fach halbierte schrittweite gefunden  exit loop :0.2
+------ STEP 7------
+x =  { 0.955853, 0.922265, 2.00069, }
+schritt 0.2
+f(x)=4.99692
+grad func(x) { 0.02112, 0.0671744, -0.0013824, }
+| grad func(x) | = 0.0704299
+x_neu =  { 0.960077, 0.9357, 2.00041, }
+func(xneu)=4.99781Teste mit doppelter schrittweite
+ { 0.964301, 0.949135, 2.00014, }
+f(xtest)4.9985
+verdopple schrittweite
+------ STEP 8------
+x =  { 0.964301, 0.949135, 2.00014, }
+schritt 0.4
+f(x)=4.9985
+grad func(x) { 0.0410675, 0.0303309, -0.000276481, }
+| grad func(x) | = 0.0510547
+x_neu =  { 0.980728, 0.961268, 2.00003, }
+func(xneu)=4.99925Teste mit doppelter schrittweite
+ { 0.997155, 0.9734, 1.99992, }
+f(xtest)4.99943
+verdopple schrittweite
+------ STEP 9------
+x =  { 0.997155, 0.9734, 1.99992, }
+schritt 0.8
+f(x)=4.99943
+grad func(x) { -0.0418191, 0.0475095, 0.000165885, }
+| grad func(x) | = 0.0632931
+x_neu =  { 0.963699, 1.01141, 2.00005, }
+func(xneu)=4.99641enter habierungsloop:0.8
+halbiere schrittweite :0.4
+neue x fach halbierte schrittweite gefunden  exit loop :0.4
+------ STEP 10------
+x =  { 0.980427, 0.992404, 1.99998, }
+schritt 0.4
+f(x)=4.99947
+grad func(x) { 0.063099, -0.0239534, 3.31735e-05, }
+| grad func(x) | = 0.0674926
+x_neu =  { 1.00567, 0.982822, 2, }
+func(xneu)=4.99945enter habierungsloop:0.4
+halbiere schrittweite :0.2
+neue x fach halbierte schrittweite gefunden  exit loop :0.2
+------ STEP 11------
+x =  { 0.993047, 0.987613, 1.99999, }
+schritt 0.2
+f(x)=4.99992
+grad func(x) { 0.00303846, 0.0108676, 1.99041e-05, }
+| grad func(x) | = 0.0112844
+x_neu =  { 0.993655, 0.989787, 1.99999, }
+func(xneu)=4.99994Teste mit doppelter schrittweite
+ { 0.994262, 0.99196, 2, }
+f(xtest)4.99996
+verdopple schrittweite
+------ STEP 12------
+x =  { 0.994262, 0.99196, 2, }
+schritt 0.4
+f(x)=4.99996
+grad func(x) { 0.006871, 0.00460428, 3.98792e-06, }
+| grad func(x) | = 0.00827104
+x_neu =  { 0.997011, 0.993802, 2, }
+func(xneu)=4.99998Teste mit doppelter schrittweite
+ { 0.999759, 0.995643, 2, }
+f(xtest)4.99998
+verdopple schrittweite
+------ STEP 13------
+x =  { 0.999759, 0.995643, 2, }
+schritt 0.8
+f(x)=4.99998
+grad func(x) { -0.00774936, 0.00823103, -2.3892e-06, }
+| grad func(x) | = 0.011305
+x_neu =  { 0.99356, 1.00223, 2, }
+func(xneu)=4.99988enter habierungsloop:0.8
+halbiere schrittweite :0.4
+neue x fach halbierte schrittweite gefunden  exit loop :0.4
+------ STEP 14------
+x =  { 0.996659, 0.998936, 2, }
+schritt 0.4
+f(x)=4.99998
+grad func(x) { 0.0112344, -0.00455328, -4.88498e-07, }
+| grad func(x) | = 0.0121221
+x_neu =  { 1.00115, 0.997115, 2, }
+func(xneu)=4.99998enter habierungsloop:0.4
+halbiere schrittweite :0.2
+neue x fach halbierte schrittweite gefunden  exit loop :0.2
+------ STEP 15------
+x =  { 0.998906, 0.998025, 2, }
+schritt 0.2
+f(x)=5
+grad func(x) { 0.00042558, 0.00176181, -2.93099e-07, }
+| grad func(x) | = 0.00181248
+x_neu =  { 0.998991, 0.998378, 2, }
+func(xneu)=5Teste mit doppelter schrittweite
+ { 0.999076, 0.99873, 2, }
+f(xtest)5
+verdopple schrittweite
+------ STEP 16------
+x =  { 0.999076, 0.99873, 2, }
+schritt 0.4
+f(x)=5
+grad func(x) { 0.00115409, 0.000692824, -6.21725e-08, }
+| grad func(x) | = 0.00134608
+x_neu =  { 0.999538, 0.999007, 2, }
+func(xneu)=5Teste mit doppelter schrittweite
+ { 1, 0.999284, 2, }
+f(xtest)5
+behalte alte schrittweite
+------ STEP 17------
+x =  { 0.999538, 0.999007, 2, }
+schritt 0.4
+f(x)=5
+grad func(x) { -0.000138183, 0.00106184, -8.88178e-09, }
+| grad func(x) | = 0.00107079
+x_neu =  { 0.999483, 0.999432, 2, }
+func(xneu)=5Teste mit doppelter schrittweite
+ { 0.999427, 0.999857, 2, }
+f(xtest)5
+behalte alte schrittweite
+------ STEP 18------
+x =  { 0.999483, 0.999432, 2, }
+schritt 0.4
+f(x)=5
+grad func(x) { 0.000932365, 0.000101821, 0, }
+| grad func(x) | = 0.000937909
+x_neu =  { 0.999856, 0.999473, 2, }
+func(xneu)=5Teste mit doppelter schrittweite
+ { 1.00023, 0.999513, 2, }
+f(xtest)5
+behalte alte schrittweite
+------ STEP 19------
+x =  { 0.999856, 0.999473, 2, }
+schritt 0.4
+f(x)=5
+grad func(x) { -0.000477964, 0.000766258, 0, }
+| grad func(x) | = 0.000903107
+x_neu =  { 0.999665, 0.999779, 2, }
+func(xneu)=5Teste mit doppelter schrittweite
+ { 0.999473, 1.00009, 2, }
+f(xtest)5
+behalte alte schrittweite
+------ STEP 20------
+x =  { 0.999665, 0.999779, 2, }
+schritt 0.4
+f(x)=5
+grad func(x) { 0.000899796, -0.000229115, 0, }
+| grad func(x) | = 0.000928507
+x_neu =  { 1.00002, 0.999687, 2, }
+func(xneu)=5Teste mit doppelter schrittweite
+ { 1.00038, 0.999596, 2, }
+f(xtest)5
+behalte alte schrittweite
+------ STEP 21------
+x =  { 1.00002, 0.999687, 2, }
+schritt 0.4
+f(x)=5
+grad func(x) { -0.000723182, 0.000674003, 0, }
+| grad func(x) | = 0.000988571
+x_neu =  { 0.999735, 0.999957, 2, }
+func(xneu)=5enter habierungsloop:0.4
+halbiere schrittweite :0.2
+neue x fach halbierte schrittweite gefunden  exit loop :0.2
+------ STEP 22------
+x =  { 0.99988, 0.999822, 2, }
+schritt 0.2
+f(x)=5
+grad func(x) { 0.000124976, 0.000115135, 0, }
+| grad func(x) | = 0.000169926
+x_neu =  { 0.999905, 0.999845, 2, }
+func(xneu)=5Teste mit doppelter schrittweite
+ { 0.99993, 0.999868, 2, }
+f(xtest)5
+verdopple schrittweite
+------ STEP 23------
+x =  { 0.99993, 0.999868, 2, }
+schritt 0.4
+f(x)=5
+grad func(x) { 1.71241e-05, 0.000123013, 0, }
+| grad func(x) | = 0.000124199
+x_neu =  { 0.999937, 0.999917, 2, }
+func(xneu)=5Teste mit doppelter schrittweite
+ { 0.999943, 0.999967, 2, }
+f(xtest)5
+verdopple schrittweite
+------ STEP 24------
+x =  { 0.999943, 0.999967, 2, }
+schritt 0.8
+f(x)=5
+grad func(x) { 0.000159144, -4.64073e-05, 0, }
+| grad func(x) | = 0.000165772
+x_neu =  { 1.00007, 0.99993, 2, }
+func(xneu)=5enter habierungsloop:0.8
+halbiere schrittweite :0.4
+neue x fach halbierte schrittweite gefunden  exit loop :0.4
+------ STEP 25------
+x =  { 1.00001, 0.999948, 2, }
+schritt 0.4
+f(x)=5
+grad func(x) { -0.000132614, 0.00011803, 0, }
+| grad func(x) | = 0.000177532
+x_neu =  { 0.999954, 0.999995, 2, }
+func(xneu)=5enter habierungsloop:0.4
+halbiere schrittweite :0.2
+neue x fach halbierte schrittweite gefunden  exit loop :0.2
+------ STEP 26------
+x =  { 0.999981, 0.999972, 2, }
+schritt 0.2
+f(x)=5
+grad func(x) { 2.06946e-05, 1.77725e-05, 0, }
+| grad func(x) | = 2.72786e-05

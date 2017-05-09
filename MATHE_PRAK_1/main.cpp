@@ -10,8 +10,8 @@ const double break_con = 0.0001;
 #define MAX_STEPS 50
 
 
-#define USE_F
-//#define USE_G
+//#define USE_F
+#define USE_G
 
 
 #ifdef USE_F
@@ -50,7 +50,7 @@ vec res(_x.gsize());
     for (int i = 0; i < res.gsize(); ++i) {
 	   vec withstep = _x;
 	   withstep.at(i)= withstep.at(i)+h;
-	   res.at(i) = ((f(withstep) -f(_x) )/h);
+	   res.at(i) = ((func_call(withstep) -func_call(_x) )/h);
     }
 return res;
 }
@@ -69,7 +69,7 @@ int main() {
     schritt_f = 1.0f;
 #endif
 #ifdef USE_G
-    vec xf("ddD", 0.0,0.0,0.0);
+    vec xf("ddd", 0.0,0.0,0.0);
     schritt_f = 0.1;
 #endif
 
@@ -106,12 +106,12 @@ int main() {
 
         std::cout << "x_neu = ";
         xfn.print();
-	   double newf = f(xfn);
+	   double newf = func_call(xfn);
 	   std::cout << "func(xneu)=" << newf ;
    
 	   
 	   
-        if(f(xf) < f(xfn)){
+        if(func_call(xf) < func_call(xfn)){
 		   
             std::cout << "Teste mit doppelter schrittweite" << std::endl;
             vec tmp_002 = gradient(xf,func_call_name)*(2.0*schritt_f);
@@ -132,7 +132,7 @@ int main() {
             std::cout << "enter habierungsloop:" << schritt_f << std::endl;
             //solange xneu > xalt
 		   
-        while(f(xfn) < f(xf) || equalityTestDouble(f(xf),f(xfn)) ){
+        while(func_call(xfn) < func_call(xf) || equalityTestDouble(func_call(xf),func_call(xfn)) ){
             schritt_f *= 0.5;
             std::cout << "halbiere schrittweite :" << schritt_f << std::endl;
             tmp_001 = res_grad*schritt_f;

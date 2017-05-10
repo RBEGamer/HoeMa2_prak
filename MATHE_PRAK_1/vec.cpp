@@ -136,7 +136,7 @@ vec vec::operator* (double _lam){
     return  tmp;
 }
 
-double vec::operator[] (u_int16_t _pos){
+double& vec::operator[] (u_int16_t _pos){
     if(_pos >= data_storage.size()){
 #ifdef VEC_WARNING
         std::cout << __FILE__ << ":" << __LINE__ << "->" << "op[] out of range" << std::endl;

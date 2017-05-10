@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/marcel/Desktop/HoeMa2_prak/MATHE_PRAK_1/main.cpp
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/main.cpp
 iostream
 -
 vec.h
-/home/marcel/Desktop/HoeMa2_prak/MATHE_PRAK_1/vec.h
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/vec.h
 math.h
 -
 limits
@@ -20,11 +20,11 @@ fstream
 iomanip
 -
 
-/home/marcel/Desktop/HoeMa2_prak/MATHE_PRAK_1/vec.cpp
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/vec.cpp
 vec.h
-/home/marcel/Desktop/HoeMa2_prak/MATHE_PRAK_1/vec.h
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/vec.h
 
-/home/marcel/Desktop/HoeMa2_prak/MATHE_PRAK_1/vec.h
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_1/vec.h
 iostream
 -
 vector

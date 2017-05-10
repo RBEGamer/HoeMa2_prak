@@ -20,13 +20,17 @@ const double break_con = 0.0001;
 #define func_call(a) f(a)
 #define func_call_name f
 #define func_call_name_string "f"
-#endif
-
+#else
 #ifdef USE_G
 #define func_call(a) g(a)
 #define func_call_name g
 #define func_call_name_string "g"
+#else
+#error "PLEASE DEFINE A FUNCTION TO EXECUTE"
 #endif
+#endif
+
+
 
 
 //sin(x+y2)+y3 −6y2 +9y
@@ -50,7 +54,7 @@ double g(vec _x){
 
 
 
-#define OUT_FILE_PATH "output_" func_call_name_string ".txt"
+#define OUT_FILE_PATH "../output_" func_call_name_string ".txt"
 
 
 

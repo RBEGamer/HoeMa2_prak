@@ -31,7 +31,7 @@ public:
     int set_row_values(const char* _fmt,...);
     double get_val(u_int16_t _pos);
     std::vector<double> get_val_row();
-    double operator[] (u_int16_t _pos);
+    double& operator[] (u_int16_t _pos);
     double& at(u_int16_t _pos);
     vec operator+ (vec& _other);
     vec operator*(double _lam);

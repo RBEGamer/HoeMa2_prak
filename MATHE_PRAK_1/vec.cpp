@@ -149,6 +149,7 @@ double vec::operator[] (u_int16_t _pos){
 }
 
 u_int16_t vec::gsize(){
+    size = data_storage.size();
 return size;
 }
 

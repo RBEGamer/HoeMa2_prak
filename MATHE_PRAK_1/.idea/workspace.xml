@@ -36,8 +36,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+            <state relative-caret-position="680">
+              <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#351#435#0" expanded="true" />
@@ -51,7 +51,7 @@
       <file leaf-file-name="vec.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vec.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="820">
+            <state relative-caret-position="748">
               <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="36" />
               <folding>
                 <element signature="e#107#126#0" expanded="true" />
@@ -63,11 +63,12 @@
       <file leaf-file-name="vec.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vec.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="668">
+              <caret line="151" column="4" lean-forward="false" selection-start-line="151" selection-start-column="4" selection-end-line="151" selection-end-column="4" />
               <folding>
                 <element signature="e#70#278#0" expanded="false" />
                 <element signature="e#280#644#0" expanded="false" />
+                <element signature="e#646#867#0" expanded="false" />
                 <element signature="e#869#1421#0" expanded="false" />
                 <element signature="e#1423#2267#0" expanded="false" />
                 <element signature="e#2269#2550#0" expanded="false" />
@@ -75,7 +76,7 @@
                 <element signature="e#2616#2876#0" expanded="false" />
                 <element signature="e#2878#3156#0" expanded="false" />
                 <element signature="e#3158#3333#0" expanded="false" />
-                <element signature="e#3335#3605#0" expanded="false" />
+                <element signature="e#3679#3849#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -92,8 +93,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/vec.h" />
-        <option value="$PROJECT_DIR$/vec.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/vec.cpp" />
       </list>
     </option>
   </component>
@@ -104,9 +105,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="841" />
-    <option name="y" value="106" />
-    <option name="width" value="1235" />
+    <option name="x" value="268" />
+    <option name="y" value="24" />
+    <option name="width" value="1697" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
@@ -417,17 +418,18 @@
       <workItem from="1494354725427" duration="559000" />
       <workItem from="1494361274386" duration="75000" />
       <workItem from="1494361362861" duration="12000" />
+      <workItem from="1494374621320" duration="278000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39988000" />
+    <option name="totallyTimeSpent" value="40266000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="841" y="106" width="1235" height="1056" extended-state="0" />
+    <frame x="268" y="24" width="1697" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28421053" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2068356" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -462,7 +464,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -484,6 +486,7 @@
           <folding>
             <element signature="e#70#278#0" expanded="false" />
             <element signature="e#280#644#0" expanded="false" />
+            <element signature="e#646#867#0" expanded="false" />
             <element signature="e#869#1421#0" expanded="false" />
             <element signature="e#1423#2267#0" expanded="false" />
             <element signature="e#2269#2550#0" expanded="false" />
@@ -491,7 +494,7 @@
             <element signature="e#2616#2876#0" expanded="false" />
             <element signature="e#2878#3156#0" expanded="false" />
             <element signature="e#3158#3333#0" expanded="false" />
-            <element signature="e#3335#3605#0" expanded="false" />
+            <element signature="e#3679#3849#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -539,6 +542,7 @@
           <folding>
             <element signature="e#70#278#0" expanded="false" />
             <element signature="e#280#644#0" expanded="false" />
+            <element signature="e#646#867#0" expanded="false" />
             <element signature="e#869#1421#0" expanded="false" />
             <element signature="e#1423#2267#0" expanded="false" />
             <element signature="e#2269#2550#0" expanded="false" />
@@ -546,7 +550,7 @@
             <element signature="e#2616#2876#0" expanded="false" />
             <element signature="e#2878#3156#0" expanded="false" />
             <element signature="e#3158#3333#0" expanded="false" />
-            <element signature="e#3335#3605#0" expanded="false" />
+            <element signature="e#3679#3849#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -594,6 +598,7 @@
           <folding>
             <element signature="e#70#278#0" expanded="false" />
             <element signature="e#280#644#0" expanded="false" />
+            <element signature="e#646#867#0" expanded="false" />
             <element signature="e#869#1421#0" expanded="false" />
             <element signature="e#1423#2267#0" expanded="false" />
             <element signature="e#2269#2550#0" expanded="false" />
@@ -601,7 +606,7 @@
             <element signature="e#2616#2876#0" expanded="false" />
             <element signature="e#2878#3156#0" expanded="false" />
             <element signature="e#3158#3333#0" expanded="false" />
-            <element signature="e#3335#3605#0" expanded="false" />
+            <element signature="e#3679#3849#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -649,6 +654,7 @@
           <folding>
             <element signature="e#70#278#0" expanded="false" />
             <element signature="e#280#644#0" expanded="false" />
+            <element signature="e#646#867#0" expanded="false" />
             <element signature="e#869#1421#0" expanded="false" />
             <element signature="e#1423#2267#0" expanded="false" />
             <element signature="e#2269#2550#0" expanded="false" />
@@ -656,7 +662,7 @@
             <element signature="e#2616#2876#0" expanded="false" />
             <element signature="e#2878#3156#0" expanded="false" />
             <element signature="e#3158#3333#0" expanded="false" />
-            <element signature="e#3335#3605#0" expanded="false" />
+            <element signature="e#3679#3849#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -699,6 +705,7 @@
           <folding>
             <element signature="e#70#278#0" expanded="false" />
             <element signature="e#280#644#0" expanded="false" />
+            <element signature="e#646#867#0" expanded="false" />
             <element signature="e#869#1421#0" expanded="false" />
             <element signature="e#1423#2267#0" expanded="false" />
             <element signature="e#2269#2550#0" expanded="false" />
@@ -706,7 +713,7 @@
             <element signature="e#2616#2876#0" expanded="false" />
             <element signature="e#2878#3156#0" expanded="false" />
             <element signature="e#3158#3333#0" expanded="false" />
-            <element signature="e#3335#3605#0" expanded="false" />
+            <element signature="e#3679#3849#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -762,6 +769,7 @@
           <folding>
             <element signature="e#70#278#0" expanded="false" />
             <element signature="e#280#644#0" expanded="false" />
+            <element signature="e#646#867#0" expanded="false" />
             <element signature="e#869#1421#0" expanded="false" />
             <element signature="e#1423#2267#0" expanded="false" />
             <element signature="e#2269#2550#0" expanded="false" />
@@ -769,7 +777,7 @@
             <element signature="e#2616#2876#0" expanded="false" />
             <element signature="e#2878#3156#0" expanded="false" />
             <element signature="e#3158#3333#0" expanded="false" />
-            <element signature="e#3335#3605#0" expanded="false" />
+            <element signature="e#3679#3849#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -810,23 +818,14 @@
     <entry file="file:///usr/include/c++/5/ext/new_allocator.h" />
     <entry file="file:///usr/include/c++/5/bits/alloc_traits.h" />
     <entry file="file:///usr/include/c++/5/bits/stl_vector.h" />
-    <entry file="file://$PROJECT_DIR$/vec.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="36" />
-          <folding>
-            <element signature="e#107#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vec.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="668">
+          <caret line="151" column="4" lean-forward="false" selection-start-line="151" selection-start-column="4" selection-end-line="151" selection-end-column="4" />
           <folding>
             <element signature="e#70#278#0" expanded="false" />
             <element signature="e#280#644#0" expanded="false" />
+            <element signature="e#646#867#0" expanded="false" />
             <element signature="e#869#1421#0" expanded="false" />
             <element signature="e#1423#2267#0" expanded="false" />
             <element signature="e#2269#2550#0" expanded="false" />
@@ -834,15 +833,25 @@
             <element signature="e#2616#2876#0" expanded="false" />
             <element signature="e#2878#3156#0" expanded="false" />
             <element signature="e#3158#3333#0" expanded="false" />
-            <element signature="e#3335#3605#0" expanded="false" />
+            <element signature="e#3679#3849#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vec.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="41" column="36" lean-forward="false" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="36" />
+          <folding>
+            <element signature="e#107#126#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="21" column="33" lean-forward="false" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        <state relative-caret-position="680">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#351#435#0" expanded="true" />

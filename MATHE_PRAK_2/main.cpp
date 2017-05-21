@@ -67,7 +67,7 @@ int main() {
         file << "   " << "||dx|| =";
         file << dx_vec.length();
 
-
+        file << std::endl;
     }
 
 

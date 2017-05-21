@@ -41,27 +41,26 @@ std::cout << "MAT INIT WITH w:" << dim_w << " h:" << dim_h << " " << __FILE__ <<
 
 
 
-vec mat::operator*(mat A, vec x){
+//vec mat::operator*(mat& A, vec& x){
     //TODO
 
 
-}
+//}
 
 mat mat::invers(){
-
+    if(dim_w == 2 && dim_h == 2){
+        std::cout << "inverse geht nicht" << std::endl;
+        throw;
+    }
    mat tmat(dim_w, dim_h);
-
     double mutliplikator = 1.0 / (
                                          get_val(0, 0)*get_val(1, 1)- //A*D
                                          get_val(1, 0)*get_val(1, 0)
                                  );
-
     tmat.set_val(0,0,get_val(1,1)*mutliplikator); //a = d
     tmat.set_val(1,0,-get_val(1,0)*mutliplikator); //b = -b
     tmat.set_val(0,1,-get_val(0,1)*mutliplikator); //c = -c
     tmat.set_val(1,1,get_val(0,0)*mutliplikator); //d = a
-
-    
 }
 
 

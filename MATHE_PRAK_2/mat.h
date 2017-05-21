@@ -21,7 +21,7 @@ class mat {
 
 public:
     mat(const int _dim_w, const int _dim_h);
-    vec operator*(mat A, vec x);
+  //  vec operator*(mat& A, vec& x);
     mat invers();
     void set_val(const int _w, const int _h, const double _val);
     double get_val(const int _w, const int _h);

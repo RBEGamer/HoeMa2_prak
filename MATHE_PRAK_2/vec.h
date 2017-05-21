@@ -1,6 +1,4 @@
-//
-// Created by Marcel Ochsendorf on 06.05.17.
-//
+
 
 #ifndef MATHE_PRAK_1_VEC_H
 #define MATHE_PRAK_1_VEC_H

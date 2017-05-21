@@ -1,6 +1,3 @@
-//
-// Created by Marcel Ochsendorf on 06.05.17.
-//
 
 #ifndef MATHE_PRAK_2_MAT_H
 #define MATHE_PRAK_2_MAT_H

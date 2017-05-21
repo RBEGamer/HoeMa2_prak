@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/main.cpp" "/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/cmake-build-debug/CMakeFiles/MATHE_PRAK_2.dir/main.cpp.o"
-  "/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/mat.cpp" "/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/cmake-build-debug/CMakeFiles/MATHE_PRAK_2.dir/mat.cpp.o"
-  "/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/vec.cpp" "/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/cmake-build-debug/CMakeFiles/MATHE_PRAK_2.dir/vec.cpp.o"
+  "/home/henn/2Semester/Hoema2/Praktikum/Praktikum2/Praktikum2/MATHE_PRAK_2/main.cpp" "/home/henn/2Semester/Hoema2/Praktikum/Praktikum2/Praktikum2/MATHE_PRAK_2/cmake-build-debug/CMakeFiles/MATHE_PRAK_2.dir/main.cpp.o"
+  "/home/henn/2Semester/Hoema2/Praktikum/Praktikum2/Praktikum2/MATHE_PRAK_2/mat.cpp" "/home/henn/2Semester/Hoema2/Praktikum/Praktikum2/Praktikum2/MATHE_PRAK_2/cmake-build-debug/CMakeFiles/MATHE_PRAK_2.dir/mat.cpp.o"
+  "/home/henn/2Semester/Hoema2/Praktikum/Praktikum2/Praktikum2/MATHE_PRAK_2/vec.cpp" "/home/henn/2Semester/Hoema2/Praktikum/Praktikum2/Praktikum2/MATHE_PRAK_2/cmake-build-debug/CMakeFiles/MATHE_PRAK_2.dir/vec.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

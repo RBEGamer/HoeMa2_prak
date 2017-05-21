@@ -1,6 +1,3 @@
-//
-// Created by Marcel Ochsendorf on 06.05.17.
-//
 
 #include "vec.h"
 

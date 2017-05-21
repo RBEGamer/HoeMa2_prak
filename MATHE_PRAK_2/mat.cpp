@@ -30,23 +30,24 @@ mat::mat(const int _dim_w, const int _dim_h){
         data_holder_mat.push_back(tmp);
     }
 
-
-
 std::cout << "MAT INIT WITH w:" << dim_w << " h:" << dim_h << " " << __FILE__ << ":" << __LINE__ << std::endl;
+}
+
+
+
+vec mat::operator*(vec& x){
+#ifdef MAT_WARNING
+    if(x.gsize() >= data_holder_mat.size()) {
+        std::cout << "MAT WARNING :" << "const sim failed DIM_W" << __FILE__ << ":" << __LINE__ << std::endl;
+    }
+#endif
+
+
 
 
 
 
 }
-
-
-
-//vec mat::operator*(mat& A, vec& x){
-    //TODO
-
-
-//}
-
 mat mat::invers(){
     if(dim_w == 2 && dim_h == 2){
         std::cout << "inverse geht nicht" << std::endl;

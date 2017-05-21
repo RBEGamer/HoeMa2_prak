@@ -1,3 +1,0 @@
-/home/henn/2Semester/Hoema2/Praktikum/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/henn/2Semester/Hoema2/Praktikum/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/henn/2Semester/Hoema2/Praktikum/HoeMa2_prak/MATHE_PRAK_1/cmake-build-debug/CMakeFiles/MATHE_PRAK_1.dir

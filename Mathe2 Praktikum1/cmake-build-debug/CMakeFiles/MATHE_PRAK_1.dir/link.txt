@@ -1,1 +1,0 @@
-/usr/bin/c++   -g   CMakeFiles/MATHE_PRAK_1.dir/main.cpp.o CMakeFiles/MATHE_PRAK_1.dir/vec.cpp.o  -o MATHE_PRAK_1 

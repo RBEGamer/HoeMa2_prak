@@ -1,2 +1,0 @@
-Options: 
-CMake: 3.7.1@/home/henn/clion-2016.3.4/bin/cmake/bin/cmake

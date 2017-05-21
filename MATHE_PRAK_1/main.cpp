@@ -6,8 +6,8 @@
 #include <fstream>
 #include <iomanip>
 
-const double h = (0.0000001);
-const double break_con = 0.0001;
+const double h = 0.0000001;
+const double break_con = 0.00001; //10^-5
 #define MAX_STEPS 50
 
 

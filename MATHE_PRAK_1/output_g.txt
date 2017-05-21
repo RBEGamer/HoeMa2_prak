@@ -9,6 +9,8 @@ func(xneu)=1.76Teste mit doppelter schrittweite
  { 0.4, -2e-08, 0.8, }
 f(xtest)3.04
 verdopple schrittweite
+
+
 ------ STEP 1------
 x =  { 0.4, -2e-08, 0.8, }
 schritt 0.2
@@ -20,6 +22,8 @@ func(xneu)=4.1088Teste mit doppelter schrittweite
  { 0.56, 0.32, 1.76, }
 f(xtest)4.6912
 verdopple schrittweite
+
+
 ------ STEP 2------
 x =  { 0.56, 0.32, 1.76, }
 schritt 0.4
@@ -31,6 +35,8 @@ func(xneu)=4.87603Teste mit doppelter schrittweite
  { 0.88, 0.704, 2.144, }
 f(xtest)4.93389
 verdopple schrittweite
+
+
 ------ STEP 3------
 x =  { 0.88, 0.704, 2.144, }
 schritt 0.8
@@ -41,6 +47,8 @@ x_neu =  { 0.7904, 0.9856, 1.9136, }
 func(xneu)=4.9105enter habierungsloop:0.8
 halbiere schrittweite :0.4
 neue x fach halbierte schrittweite gefunden  exit loop :0.4
+
+
 ------ STEP 4------
 x =  { 0.8352, 0.8448, 2.0288, }
 schritt 0.4
@@ -52,6 +60,8 @@ func(xneu)=4.98039Teste mit doppelter schrittweite
  { 1.11424, 0.82944, 1.98272, }
 f(xtest)4.90554
 behalte alte schrittweite
+
+
 ------ STEP 5------
 x =  { 0.97472, 0.83712, 2.00576, }
 schritt 0.4
@@ -63,6 +73,8 @@ func(xneu)=4.98286Teste mit doppelter schrittweite
  { 0.795008, 1.05728, 1.99654, }
 f(xtest)4.88918
 behalte alte schrittweite
+
+
 ------ STEP 6------
 x =  { 0.884864, 0.9472, 2.00115, }
 schritt 0.4
@@ -73,6 +85,8 @@ x_neu =  { 1.02684, 0.897331, 2.00023, }
 func(xneu)=4.98251enter habierungsloop:0.4
 halbiere schrittweite :0.2
 neue x fach halbierte schrittweite gefunden  exit loop :0.2
+
+
 ------ STEP 7------
 x =  { 0.955853, 0.922265, 2.00069, }
 schritt 0.2
@@ -84,6 +98,8 @@ func(xneu)=4.99781Teste mit doppelter schrittweite
  { 0.964301, 0.949135, 2.00014, }
 f(xtest)4.9985
 verdopple schrittweite
+
+
 ------ STEP 8------
 x =  { 0.964301, 0.949135, 2.00014, }
 schritt 0.4
@@ -95,6 +111,8 @@ func(xneu)=4.99925Teste mit doppelter schrittweite
  { 0.997155, 0.9734, 1.99992, }
 f(xtest)4.99943
 verdopple schrittweite
+
+
 ------ STEP 9------
 x =  { 0.997155, 0.9734, 1.99992, }
 schritt 0.8
@@ -105,6 +123,8 @@ x_neu =  { 0.963699, 1.01141, 2.00005, }
 func(xneu)=4.99641enter habierungsloop:0.8
 halbiere schrittweite :0.4
 neue x fach halbierte schrittweite gefunden  exit loop :0.4
+
+
 ------ STEP 10------
 x =  { 0.980427, 0.992404, 1.99998, }
 schritt 0.4
@@ -115,6 +135,8 @@ x_neu =  { 1.00567, 0.982822, 2, }
 func(xneu)=4.99945enter habierungsloop:0.4
 halbiere schrittweite :0.2
 neue x fach halbierte schrittweite gefunden  exit loop :0.2
+
+
 ------ STEP 11------
 x =  { 0.993047, 0.987613, 1.99999, }
 schritt 0.2
@@ -126,6 +148,8 @@ func(xneu)=4.99994Teste mit doppelter schrittweite
  { 0.994262, 0.99196, 2, }
 f(xtest)4.99996
 verdopple schrittweite
+
+
 ------ STEP 12------
 x =  { 0.994262, 0.99196, 2, }
 schritt 0.4
@@ -137,6 +161,8 @@ func(xneu)=4.99998Teste mit doppelter schrittweite
  { 0.999759, 0.995643, 2, }
 f(xtest)4.99998
 verdopple schrittweite
+
+
 ------ STEP 13------
 x =  { 0.999759, 0.995643, 2, }
 schritt 0.8
@@ -147,6 +173,8 @@ x_neu =  { 0.99356, 1.00223, 2, }
 func(xneu)=4.99988enter habierungsloop:0.8
 halbiere schrittweite :0.4
 neue x fach halbierte schrittweite gefunden  exit loop :0.4
+
+
 ------ STEP 14------
 x =  { 0.996659, 0.998936, 2, }
 schritt 0.4
@@ -157,6 +185,8 @@ x_neu =  { 1.00115, 0.997115, 2, }
 func(xneu)=4.99998enter habierungsloop:0.4
 halbiere schrittweite :0.2
 neue x fach halbierte schrittweite gefunden  exit loop :0.2
+
+
 ------ STEP 15------
 x =  { 0.998906, 0.998025, 2, }
 schritt 0.2
@@ -168,6 +198,8 @@ func(xneu)=5Teste mit doppelter schrittweite
  { 0.999076, 0.99873, 2, }
 f(xtest)5
 verdopple schrittweite
+
+
 ------ STEP 16------
 x =  { 0.999076, 0.99873, 2, }
 schritt 0.4
@@ -179,6 +211,8 @@ func(xneu)=5Teste mit doppelter schrittweite
  { 1, 0.999284, 2, }
 f(xtest)5
 behalte alte schrittweite
+
+
 ------ STEP 17------
 x =  { 0.999538, 0.999007, 2, }
 schritt 0.4
@@ -190,6 +224,8 @@ func(xneu)=5Teste mit doppelter schrittweite
  { 0.999427, 0.999857, 2, }
 f(xtest)5
 behalte alte schrittweite
+
+
 ------ STEP 18------
 x =  { 0.999483, 0.999432, 2, }
 schritt 0.4
@@ -201,6 +237,8 @@ func(xneu)=5Teste mit doppelter schrittweite
  { 1.00023, 0.999513, 2, }
 f(xtest)5
 behalte alte schrittweite
+
+
 ------ STEP 19------
 x =  { 0.999856, 0.999473, 2, }
 schritt 0.4
@@ -212,6 +250,8 @@ func(xneu)=5Teste mit doppelter schrittweite
  { 0.999473, 1.00009, 2, }
 f(xtest)5
 behalte alte schrittweite
+
+
 ------ STEP 20------
 x =  { 0.999665, 0.999779, 2, }
 schritt 0.4
@@ -223,6 +263,8 @@ func(xneu)=5Teste mit doppelter schrittweite
  { 1.00038, 0.999596, 2, }
 f(xtest)5
 behalte alte schrittweite
+
+
 ------ STEP 21------
 x =  { 1.00002, 0.999687, 2, }
 schritt 0.4
@@ -233,6 +275,8 @@ x_neu =  { 0.999735, 0.999957, 2, }
 func(xneu)=5enter habierungsloop:0.4
 halbiere schrittweite :0.2
 neue x fach halbierte schrittweite gefunden  exit loop :0.2
+
+
 ------ STEP 22------
 x =  { 0.99988, 0.999822, 2, }
 schritt 0.2
@@ -244,6 +288,8 @@ func(xneu)=5Teste mit doppelter schrittweite
  { 0.99993, 0.999868, 2, }
 f(xtest)5
 verdopple schrittweite
+
+
 ------ STEP 23------
 x =  { 0.99993, 0.999868, 2, }
 schritt 0.4
@@ -255,6 +301,8 @@ func(xneu)=5Teste mit doppelter schrittweite
  { 0.999943, 0.999967, 2, }
 f(xtest)5
 verdopple schrittweite
+
+
 ------ STEP 24------
 x =  { 0.999943, 0.999967, 2, }
 schritt 0.8
@@ -265,6 +313,8 @@ x_neu =  { 1.00007, 0.99993, 2, }
 func(xneu)=5enter habierungsloop:0.8
 halbiere schrittweite :0.4
 neue x fach halbierte schrittweite gefunden  exit loop :0.4
+
+
 ------ STEP 25------
 x =  { 1.00001, 0.999948, 2, }
 schritt 0.4
@@ -275,6 +325,8 @@ x_neu =  { 0.999954, 0.999995, 2, }
 func(xneu)=5enter habierungsloop:0.4
 halbiere schrittweite :0.2
 neue x fach halbierte schrittweite gefunden  exit loop :0.2
+
+
 ------ STEP 26------
 x =  { 0.999981, 0.999972, 2, }
 schritt 0.2

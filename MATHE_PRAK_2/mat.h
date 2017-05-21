@@ -25,10 +25,11 @@ public:
     mat invers();
     void set_val(const int _w, const int _h, const double _val);
     double get_val(const int _w, const int _h);
+    void print(std::ofstream* _file);
 
-    int dim_w;
-    int dim_h;
 private:
     std::vector<vec> data_holder_mat;
+    int dim_w;
+    int dim_h;
 };
 #endif //MATHE_PRAK_2_MAT_H

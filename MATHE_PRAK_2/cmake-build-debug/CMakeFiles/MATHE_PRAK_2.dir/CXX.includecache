@@ -9,10 +9,18 @@
 /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/main.cpp
 iostream
 -
-mat.h
-/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/mat.h
 vec.h
 /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/vec.h
+mat.h
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/mat.h
+math.h
+-
+limits
+-
+fstream
+-
+iomanip
+-
 
 /Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_2/mat.cpp
 mat.h

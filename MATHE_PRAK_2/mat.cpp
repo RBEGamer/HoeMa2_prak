@@ -34,6 +34,22 @@ std::cout << "MAT INIT WITH w:" << dim_w << " h:" << dim_h << " " << __FILE__ <<
 }
 
 
+void mat::print(std::ofstream* _file){
+
+    if(_file == nullptr){return;}
+
+    *_file << " { ";
+    for (int j = 0; j < dim_h; ++j) {
+        for (int i = 0; i < dim_w; ++i) { //w
+            *_file << ""<< ", ";
+        }
+        *_file << std::endl;
+    }
+    *_file << "}" << std::endl;
+}
+
+
+
 
 vec mat::operator*(vec& x){
 #ifdef MAT_WARNING

@@ -16,6 +16,7 @@
 #include "vec.h"
 
 #define MAT_WARNING
+//#define MAT_INFO
 
 class mat {
 
@@ -25,7 +26,7 @@ public:
     mat invers();
     void set_val(const int _w, const int _h, const double _val);
     double get_val(const int _w, const int _h);
-    void print(std::ofstream* _file);
+    void print(std::ofstream* _file, int _space = 3);
 
 private:
     std::vector<vec> data_holder_mat;

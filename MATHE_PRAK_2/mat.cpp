@@ -30,20 +30,26 @@ mat::mat(const int _dim_w, const int _dim_h){
         data_holder_mat.push_back(tmp);
     }
 
+#ifdef MAT_INFO
 std::cout << "MAT INIT WITH w:" << dim_w << " h:" << dim_h << " " << __FILE__ << ":" << __LINE__ << std::endl;
+#endif
 }
 
 
-void mat::print(std::ofstream* _file){
+void mat::print(std::ofstream* _file, int _space){
 
     if(_file == nullptr){return;}
 
     *_file << " { ";
     for (int j = 0; j < dim_h; ++j) {
         for (int i = 0; i < dim_w; ++i) { //w
-            *_file << ""<< ", ";
+            *_file << data_holder_mat.at(i).at(j)<< ", ";
         }
         *_file << std::endl;
+        for (int k = 0; k < _space*4; ++k) {
+            *_file << " ";
+        }
+
     }
     *_file << "}" << std::endl;
 }

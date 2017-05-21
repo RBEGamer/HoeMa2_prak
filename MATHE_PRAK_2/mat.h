@@ -28,6 +28,7 @@ public:
 
     int dim_w;
     int dim_h;
+private:
     std::vector<vec> data_holder_mat;
 };
 #endif //MATHE_PRAK_2_MAT_H

@@ -41,12 +41,17 @@ vec mat::operator*(vec& x){
         std::cout << "MAT WARNING :" << "const sim failed DIM_W" << __FILE__ << ":" << __LINE__ << std::endl;
     }
 #endif
-
-
-
-
-
-
+    vec res(x.gsize());
+    for (int ah = 0; ah < dim_h; ++ah) {
+        double sun = 0.0; //sum
+        for (int aw = 0; aw < dim_w; ++aw) {
+            for (int v = 0; v < x.gsize(); ++v) {
+                sun += data_holder_mat.at(aw).at(ah)*x.at(v);
+            }
+        }
+        res.set_value(ah,sun);
+    }
+return res;
 }
 mat mat::invers(){
     if(dim_w == 2 && dim_h == 2){

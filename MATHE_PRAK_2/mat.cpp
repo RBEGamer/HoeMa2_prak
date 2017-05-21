@@ -21,10 +21,7 @@ mat::mat(const int _dim_w, const int _dim_h){
         dim_h = _dim_h;
     }
 
-
-
     //NOW CREATE VECTOR
-
     for (int i = 0; i < dim_w; ++i) {
         vec tmp(dim_h);
         data_holder_mat.push_back(tmp);
@@ -76,8 +73,8 @@ vec mat::operator*(vec& x){
 return res;
 }
 mat mat::invers(){
-    if(dim_w == 2 && dim_h == 2){
-        std::cout << "inverse geht nicht" << std::endl;
+    if(dim_w != 2 || dim_h != 2){
+        std::cout << "inverse geht nicht" << dim_w << "h" << dim_h << std::endl;
         throw;
     }
    mat tmat(dim_w, dim_h);

@@ -54,9 +54,9 @@ int main() {
         file << "   " << "f´(x)=";
         RESULT_MAT.print(&file);
 
-        mat RESULT_MAT_INVERSE(2,2); //= RESULT_MAT.invers();
+        mat RESULT_MAT_INVERSE= RESULT_MAT.invers();
         file << "   " << "f´(x)^(-1)=";
-      //  RESULT_MAT_INVERSE.print(&file);
+        RESULT_MAT_INVERSE.print(&file);
 
         vec dx_vec(2);
         file << "   " << "dx=";

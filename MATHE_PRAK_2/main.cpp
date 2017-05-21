@@ -46,13 +46,27 @@ int main() {
     //TODO A3
 
     for (int i = 0; i < BREAK_STEPS; ++i) {
-        file << i <<":"     <<std::endl;
+        file << "schritt" << i <<":"     <<std::endl;
         file <<"   "<< "X =";
         VECTOR_X.print(&file);
 
         mat RESULT_MAT(2,2);
         file << "   " << "f´(x)=";
         RESULT_MAT.print(&file);
+
+        mat RESULT_MAT_INVERSE(2,2); //= RESULT_MAT.invers();
+        file << "   " << "f´(x)^(-1)=";
+      //  RESULT_MAT_INVERSE.print(&file);
+
+        vec dx_vec(2);
+        file << "   " << "dx=";
+        dx_vec.print(&file);
+
+
+
+        file << "   " << "||dx|| =";
+        file << dx_vec.length();
+
 
     }
 

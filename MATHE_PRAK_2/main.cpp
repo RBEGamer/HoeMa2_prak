@@ -13,6 +13,8 @@
 #define H 0.0001
 #define OUT_FILE_PATH "../output_result.txt"
 #define FUNKTIONSDIMENSION 3
+#define NEWTONFUNKTIONSDIMENSION 2
+#define BREAKCON 0.00001
 
 
 
@@ -32,6 +34,21 @@ vec funktionsAufruf( vec werte) {
    
    return res;
 }
+
+vec funktionsAufrufNewton( vec werte) {
+   
+   vec res(NEWTONFUNKTIONSDIMENSION);
+   
+   
+   double x = werte[0];
+   double y = werte[1];
+   
+   res.at(0)=pow(x,3.0)*pow(y,3.0) - 2.0*y;
+   res.at(1)=x - 2.0;
+   
+   return res;
+}
+
 
 
 
@@ -120,7 +137,7 @@ mat jacobi(vec _x, std::vector<double(void* )(vec )> functions) {
 */
 
 mat jacobi(vec _x, vec (*funktion)(vec x) ) {
-   mat neueJacobi(_x.gsize(),FUNKTIONSDIMENSION);
+   mat neueJacobi(_x.gsize(),NEWTONFUNKTIONSDIMENSION);
 //   mat neueJacobi(3,4); // beispielgroesse
    vec alteWerte = _x;
    
@@ -175,7 +192,7 @@ int main() {
    
  
    
-   mat neueJacobi = jacobi(bspVec,FunktionsBerechnung);
+  // mat neueJacobi = jacobi(bspVec,FunktionsBerechnung);
    
   
     std::ofstream file;
@@ -186,36 +203,65 @@ int main() {
     }
 
    
-
-   neueJacobi.print(&file);
-
-
-    vec VECTOR_X("dd",1.0f,1.0f); //START COORDIANTE
-    //TODO A3
-
+   //neueJacobi.print(&file);
+   
+   
+   vec (*FunktionNewton)(vec) = &funktionsAufrufNewton;
+    vec startPunkt("dd",1.0f,1.0f); //START COORDIANTE
+   vec tmpPunkt("dd",1.0f,1.0f);
+   
+   
     for (int i = 0; i < BREAK_STEPS; ++i) {
         file << "schritt" << i <<":"     <<std::endl;
         file <<"   "<< "X =";
-        VECTOR_X.print(&file);
-
-        mat RESULT_MAT(2,2);
+        tmpPunkt.print(&file);
+	   file <<std::endl;
+	  
+	   // Berechnung der Funktionswerte
+	   
+	   vec functionValues = funktionsAufrufNewton(tmpPunkt);
+	   file <<"   "<< "f(x) =";
+	   functionValues.print(&file);
+	   file <<std::endl;
+   
+	   vec oldFunctionValues = functionValues;
+	   
+	   vec negativeFunctionValues = functionValues*-1.0;
+	   vec z(2);
+	   
+	   // Berechnung der Jacobi Matrix
+   
+	   mat RESULT_MAT(2,2);
+	   RESULT_MAT = jacobi(tmpPunkt, FunktionNewton );
+	   
         file << "   " << "f´(x)=";
         RESULT_MAT.print(&file);
-
+	   
+       // Berechnung der Inversen der Jacobi Matrix
         mat RESULT_MAT_INVERSE= RESULT_MAT.invers();
         file << "   " << "f´(x)^(-1)=";
         RESULT_MAT_INVERSE.print(&file);
 
-        vec dx_vec(2);
+	   z = RESULT_MAT_INVERSE*negativeFunctionValues;
+	   
+	   
         file << "   " << "dx=";
-        dx_vec.print(&file);
-
-
-
-        file << "   " << "||dx|| =";
-        file << dx_vec.length();
+        z.print(&file);
+   
+   
+	   tmpPunkt = tmpPunkt+z;
+   
+	   functionValues=  funktionsAufrufNewton(tmpPunkt);
+	   
+        file << "   " << "||fx|| =";
+        file << oldFunctionValues.length();
 
         file << std::endl;
+	   
+	   if (functionValues.length()<BREAK_CON) {
+		  file << "Die Abbruchbedingung wurde erreicht" << std::endl;
+		   break;
+	   }
     }
    
     file.close();

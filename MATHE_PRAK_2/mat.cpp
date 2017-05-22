@@ -56,20 +56,20 @@ void mat::print(std::ofstream* _file, int _space){
 
 vec mat::operator*(vec& x){
 #ifdef MAT_WARNING
-    if(x.gsize() >= data_holder_mat.size()) {
+    if(x.gsize() > data_holder_mat.size()) {
         std::cout << "MAT WARNING :" << "const sim failed DIM_W" << __FILE__ << ":" << __LINE__ << std::endl;
     }
 #endif
     vec res(x.gsize());
     for (int ah = 0; ah < dim_h; ++ah) {
-        double sun = 0.0; //sum
-        for (int aw = 0; aw < dim_w; ++aw) {
-            for (int v = 0; v < x.gsize(); ++v) {
-                sun += data_holder_mat.at(aw).at(ah)*x.at(v);
-            }
-        }
-        res.set_value(ah,sun);
-    }
+	   double sun = 0.0; //sum
+	   for (int aw = 0; aw < dim_w; ++aw) {
+	  
+		  sun += data_holder_mat.at(aw).at(ah) * x.at(aw);
+	   }
+   
+	   res.set_value(ah, sun);
+	}
 return res;
 }
 mat mat::invers(){
@@ -77,15 +77,16 @@ mat mat::invers(){
         std::cout << "inverse geht nicht" << dim_w << "h" << dim_h << std::endl;
         throw;
     }
-   mat tmat(dim_w, dim_h);
-    double mutliplikator = 1.0 / (
-                                         get_val(0, 0)*get_val(1, 1)- //A*D
-                                         get_val(1, 0)*get_val(1, 0)
+   mat tmat(2, 2);
+    double mutliplikator = 1.00 / (
+								  (get_val(0, 0)*get_val(1, 1))- //A*D
+   ( get_val(0, 1)*get_val(1, 0))
                                  );
     tmat.set_val(0,0,get_val(1,1)*mutliplikator); //a = d
-    tmat.set_val(1,0,-get_val(1,0)*mutliplikator); //b = -b
-    tmat.set_val(0,1,-get_val(0,1)*mutliplikator); //c = -c
+    tmat.set_val(1,0,-1*get_val(1,0)*mutliplikator); //b = -b
+    tmat.set_val(0,1,-1*get_val(0,1)*mutliplikator); //c = -c
     tmat.set_val(1,1,get_val(0,0)*mutliplikator); //d = a
+return tmat;
 }
 
 

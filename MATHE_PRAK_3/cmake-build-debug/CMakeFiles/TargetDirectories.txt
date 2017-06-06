@@ -1,0 +1,3 @@
+/home/henn/2Semester/Hoema2/Praktikum3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/henn/2Semester/Hoema2/Praktikum3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/henn/2Semester/Hoema2/Praktikum3/cmake-build-debug/CMakeFiles/Praktikum3.dir

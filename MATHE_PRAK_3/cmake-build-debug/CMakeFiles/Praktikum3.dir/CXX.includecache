@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/henn/2Semester/Hoema2/Praktikum3/CDGLSolver.cpp
+CDGLSolver.h
+/home/henn/2Semester/Hoema2/Praktikum3/CDGLSolver.h
+
+/home/henn/2Semester/Hoema2/Praktikum3/CDGLSolver.h
+CMyVektor.h
+/home/henn/2Semester/Hoema2/Praktikum3/CMyVektor.h
+
+/home/henn/2Semester/Hoema2/Praktikum3/CMyVektor.cpp
+CMyVektor.h
+/home/henn/2Semester/Hoema2/Praktikum3/CMyVektor.h
+
+/home/henn/2Semester/Hoema2/Praktikum3/CMyVektor.h
+iostream
+-
+vector
+-
+stdio.h
+-
+stdarg.h
+-
+math.h
+-
+fstream
+-
+iomanip
+-
+
+/home/henn/2Semester/Hoema2/Praktikum3/main.cpp
+iostream
+-
+CMyVektor.h
+/home/henn/2Semester/Hoema2/Praktikum3/CMyVektor.h
+CDGLSolver.h
+/home/henn/2Semester/Hoema2/Praktikum3/CDGLSolver.h
+CMyVektor.h
+/home/henn/2Semester/Hoema2/Praktikum3/CMyVektor.h
+

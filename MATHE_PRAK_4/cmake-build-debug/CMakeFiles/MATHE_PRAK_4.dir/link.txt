@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/MATHE_PRAK_4.dir/main.cpp.o CMakeFiles/MATHE_PRAK_4.dir/complex.cpp.o  -o MATHE_PRAK_4 

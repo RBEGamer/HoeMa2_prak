@@ -21,4 +21,8 @@ iostream
 -
 complex.h
 /root/CLionProjects/MATHE_PRAK_4/complex.h
+fstream
+-
+vector
+-
 

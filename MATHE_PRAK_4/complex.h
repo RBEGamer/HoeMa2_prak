@@ -11,8 +11,8 @@ class complex {
     double re;
     double im;
 public:
-    complex(const double _re, const double _im);
-    complex(const float _re, const float _im);
+    complex();
+    complex(const double _re,const  double _im);
     complex(const double _phi);
     complex(const complex& _other);
     double get_re();

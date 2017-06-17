@@ -7,6 +7,8 @@
 
 #include <math.h>
 #include <iostream>
+
+#define COMPLEX_ADV_CHECK
 class complex {
     double re;
     double im;

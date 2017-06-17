@@ -25,9 +25,19 @@ complex::complex(const double _phi){
 }
 
 double complex::get_re(){
+#ifdef COMPLEX_ADV_CHECK
+    if(this == nullptr){
+        throw ;
+    }
+#endif
     return this->re;
 }
 double complex::get_im(){
+#ifdef COMPLEX_ADV_CHECK
+    if(this == nullptr){
+        throw ;
+    }
+#endif
     return this->im;
 }
 

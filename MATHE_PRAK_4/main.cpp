@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-
+#define PI M_1_PI
 //A2
 vector<complex>  werte_einlesen(char *dateiname)
 {
@@ -86,8 +86,41 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
     std::vector<complex> output_values;
     output_values.clear();
     if(_mode == FOURIER_MODE::FORWARD){
+    //frequenz to sum
+        output_values = _values;
+
+        /*
+         *
+         * Wenn im obigen Algorithmus zuerst die beiden Hälften des Feldes miteinander
+         * vertauscht werden, und dann die beiden Hälften dieser Hälften, usw. –
+         * dann ist das Ergebnis am Ende dasselbe,
+         * als würden alle Elemente des Feldes von 0 aufsteigend nummeriert werden und
+         * anschließend die Reihenfolge der Bits der Nummern der Felder umgekehrt.
+         */
+        //https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation
+        for (int rek_ebene = 0; rek_ebene < _values.size(); ++rek_ebene) {
+            int fft_abschnitte = pow(2.0,(double)_values.size()-rek_ebene-1);
+            for (int abschnitt = 0; abschnitt < fft_abschnitte; ++abschnitt) {
+
+                int fft_element = pow(2.0,rek_ebene) -1;
+                for (int element = 0; element < fft_element; ++element) {
+
+                    int index_links = pow(2.0,rek_ebene+1)*abschnitt+element;
+                    int index_rechts = index_links + pow(2.0,rek_ebene);
+                    
+                    double phi_links =-1.0*PI*(element/pow(2.0,rek_ebene));
+                    double  phi_rechts = -1.0*PI*(element/pow(2.0,rek_ebene));
+
+                    output_values[index_links] = _values[index_links] + complex(phi_links) *_values[index_rechts];
+                    output_values[index_rechts] = _values[index_links] - complex(phi_rechts) * _values[index_rechts];
+                }
 
 
+            }
+
+
+
+        }
 
 
 

@@ -21,6 +21,7 @@ public:
     double get_im();
     void pint();
     complex operator+(complex _other);
+    complex operator-(complex _other);
     complex operator*(complex _other);
     complex operator*(const double _other);
     double abs();

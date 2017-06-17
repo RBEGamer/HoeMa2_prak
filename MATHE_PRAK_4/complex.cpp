@@ -52,6 +52,9 @@ void complex::pint() {
 complex complex::operator+(complex _other){
     return  complex((const double)(get_re() + _other.get_re()),(const double)(get_im()+_other.get_im()));
 }
+complex complex::operator-(complex _other){
+    return  complex((const double)(get_re() - _other.get_re()),(const double)(get_im()-_other.get_im()));
+}
 complex complex::operator*(complex _other){
 
     double tmp_re1 = get_re() * _other.get_re(); //re*re

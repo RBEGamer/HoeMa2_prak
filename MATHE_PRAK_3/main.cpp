@@ -30,12 +30,35 @@ double functionHigherDGL(vec y,double x){
 
 
 
+
+
+
+int qs(int z){
+    if(z >= 10){
+        return  (z%10) + qs(z/10);
+
+    }
+    return z;
+}
+
+
+
+
+
+
+
+
+
 int main() {
-   
+
+
+//    std::cout << "QS(254) = " << qs(254) << std::endl;
+
    vec (*fpointerSystem)(vec y, double x) = &functionDGLSystem;
    double (*fpointerHigherDGL)(vec y, double x) = &functionHigherDGL;
    
    CDGLSolver SystemSolver(fpointerSystem);
+
    CDGLSolver HigherDGLSolver(fpointerHigherDGL);
    
    double xStartDGLSystem = 0.0;
@@ -52,8 +75,8 @@ int main() {
    startPunktHigherDGL.at(1) = -1;
    startPunktHigherDGL.at(2) = 2;
    
-   //SystemSolver.doEuler(xStartDGLSystem,xEnd,100,startPunktDGLSystem);
-   //SystemSolver.doHeun(xStartDGLSystem,xEnd,100,startPunktDGLSystem);
+   SystemSolver.doEuler(xStartDGLSystem,xEnd,100,startPunktDGLSystem);
+   SystemSolver.doHeun(xStartDGLSystem,xEnd,100,startPunktDGLSystem);
    
    HigherDGLSolver.doEuler(xStartHigherDGL,xEnd,10,startPunktHigherDGL);
    HigherDGLSolver.doHeun(xStartHigherDGL,xEnd,10,startPunktHigherDGL);

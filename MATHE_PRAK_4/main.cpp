@@ -60,6 +60,10 @@ long werte_ausgeben(char *dateiname, vector<complex> werte, double epsilon=-1.0,
     // Dimension in das File schreiben
     fp << N << endl;
     // Eintraege in das File schreiben
+    if(N <= 0){
+        fp.close();
+        return  exported;
+    }
     for (i = 0; i < N; i++)
         if (werte[i].abs() > epsilon)
             exported++;
@@ -78,9 +82,12 @@ enum FOURIER_MODE{
     BACK
 };
 
-std::vector<complex>fourier(std::vector<complex> _values, FOURIER_MODE _mode = FOURIER_MODE::FORWARD){
+std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = FOURIER_MODE::FORWARD){
     std::vector<complex> output_values;
+    output_values.clear();
     if(_mode == FOURIER_MODE::FORWARD){
+
+
 
 
 
@@ -88,6 +95,8 @@ std::vector<complex>fourier(std::vector<complex> _values, FOURIER_MODE _mode = F
 
     }else if(_mode == FOURIER_MODE::BACK){
 
+
+        //double to complex
     }else{
         std::cout << "_mode no omplemented" << std::endl;
     }

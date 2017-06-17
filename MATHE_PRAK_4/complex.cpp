@@ -25,10 +25,10 @@ complex::complex(const double _phi){
 }
 
 double complex::get_re(){
-    return re;
+    return this->re;
 }
 double complex::get_im(){
-    return im;
+    return this->im;
 }
 
 void complex::pint() {

@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/root/CLionProjects/MATHE_PRAK_4/complex.cpp" "/root/CLionProjects/MATHE_PRAK_4/cmake-build-debug/CMakeFiles/MATHE_PRAK_4.dir/complex.cpp.o"
-  "/root/CLionProjects/MATHE_PRAK_4/main.cpp" "/root/CLionProjects/MATHE_PRAK_4/cmake-build-debug/CMakeFiles/MATHE_PRAK_4.dir/main.cpp.o"
+  "/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/complex.cpp" "/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/cmake-build-debug/CMakeFiles/MATHE_PRAK_4.dir/complex.cpp.o"
+  "/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/main.cpp" "/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/cmake-build-debug/CMakeFiles/MATHE_PRAK_4.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

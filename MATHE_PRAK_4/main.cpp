@@ -17,6 +17,11 @@ vector<complex>  werte_einlesen(char *dateiname)
     // File oeffnen
     ifstream fp;
     fp.open(dateiname);
+
+    if(fp.fail()){
+        std::cout << "file not found" << std::endl;
+        throw ;
+    }
     // Dimension einlesen
     fp >> N;
     // Werte-Vektor anlegen
@@ -34,6 +39,7 @@ vector<complex>  werte_einlesen(char *dateiname)
     // File schliessen
     fp.close();
 
+    std::cout << "values_read:" << werte.size() << std::endl;
     return werte;
 }
 long werte_ausgeben(char *dateiname, vector<complex> werte, double epsilon=-1.0)
@@ -44,6 +50,10 @@ long werte_ausgeben(char *dateiname, vector<complex> werte, double epsilon=-1.0)
     // File oeffnen
     ofstream fp;
     fp.open(dateiname);
+    if(fp.fail()){
+        std::cout << "file could not open - export" << std::endl;
+        return -1;
+    }
     // Dimension in das File schreiben
     fp << N << endl;
     // Eintraege in das File schreiben

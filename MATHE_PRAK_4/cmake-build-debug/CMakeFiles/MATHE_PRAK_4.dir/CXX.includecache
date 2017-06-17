@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/root/CLionProjects/MATHE_PRAK_4/complex.cpp
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/complex.cpp
 complex.h
-/root/CLionProjects/MATHE_PRAK_4/complex.h
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/complex.h
 
-/root/CLionProjects/MATHE_PRAK_4/complex.h
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/complex.h
 math.h
 -
 iostream
 -
 
-/root/CLionProjects/MATHE_PRAK_4/main.cpp
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/main.cpp
 iostream
 -
 complex.h
-/root/CLionProjects/MATHE_PRAK_4/complex.h
+/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/complex.h
 fstream
 -
 vector

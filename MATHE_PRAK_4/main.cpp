@@ -71,6 +71,7 @@ enum FOURIER_MODE{
     FORWARD,
     BACK
 };
+
 std::vector<complex>fourier(std::vector<complex> _values, FOURIER_MODE _mode = FOURIER_MODE::FORWARD){
     std::vector<complex> output_values;
     if(_mode == FOURIER_MODE::FORWARD){
@@ -93,11 +94,8 @@ std::vector<complex>fourier(std::vector<complex> _values, FOURIER_MODE _mode = F
 int main() {
     //read values A4
     std::vector<complex> read_values = werte_einlesen("../original.txt");
-
-
-
-
     //write values A4
+
     long exp_count_10 = werte_ausgeben("../output_10.txt",fourier(read_values,FOURIER_MODE::FORWARD),1.0);
     long exp_count_01 =werte_ausgeben("../output_01.txt",fourier(read_values,FOURIER_MODE::FORWARD),0.1);
     std::cout << "es wurden " << exp_count_10 << " werte mit epsilon=1.0 exportiert" << std::endl;
@@ -108,7 +106,16 @@ int main() {
     std::vector<complex> read_values_10 = werte_einlesen("../output_10.txt");
     std::vector<complex> read_values_01 = werte_einlesen("../output_01.txt");
 
+    if(exp_count_01 != read_values_01.size()){
+        std::cout << "compare 01 not possible" << std::endl;
+    }
 
-
+    double abweichung_ep_01 = -1.0f;
+    for (int i = 0; i < exp_count_01; ++i) {
+      //  if(read_values_01[i]- > abweichung_ep_01){
+        // abweichung_ep_01 = read_values_01[i]-;
+        // }
+    }
+    std::cout<< "abweichung 0.1 ist " << abweichung_ep_01 << std::endl;
     return 0;
 }

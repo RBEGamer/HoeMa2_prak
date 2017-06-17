@@ -102,18 +102,32 @@ int main() {
     std::vector<complex> original_values = werte_einlesen("../original.txt");
     //write values A4
 
-
+    std::vector<complex> write_values_default;
     std::vector<complex> write_values_10;
     std::vector<complex> write_values_01;
     //mache hintransformtation
+    std::cout << "es wurden " << werte_ausgeben("../output_default.txt",fourier(original_values,FOURIER_MODE::FORWARD),-1.0, &write_values_default) << " werte mit epsilon=-1.0 exportiert" << std::endl;
     std::cout << "es wurden " <<  werte_ausgeben("../output_10.txt",fourier(original_values,FOURIER_MODE::FORWARD),1.0, &write_values_10) << " werte mit epsilon=1.0 exportiert" << std::endl;
     std::cout << "es wurden " << werte_ausgeben("../output_01.txt",fourier(original_values,FOURIER_MODE::FORWARD),0.1, &write_values_01) << " werte mit epsilon=0.1 exportiert" << std::endl;
     //lese werte
+    std::vector<complex> read_values_default = werte_einlesen("../output_default.txt");
     std::vector<complex> read_values_10 = werte_einlesen("../output_10.txt");
     std::vector<complex> read_values_01 = werte_einlesen("../output_01.txt");
     //mache rücktransformation
+    read_values_default = fourier(read_values_default,FOURIER_MODE::BACK);
     read_values_10 = fourier(read_values_10,FOURIER_MODE::BACK);
     read_values_01 = fourier(read_values_01,FOURIER_MODE::BACK);
+    //berechne abweichung für -1.0f defualt
+    if(write_values_10.size() != read_values_10.size()){
+        std::cout << "compare default not possible" << std::endl;
+    }
+    double abweichung_ep_default = -1.0f;
+    for (int i = 0; i < write_values_default.size(); ++i) {
+        if((read_values_default[i].abs()-write_values_default[i].abs()) > abweichung_ep_default){
+            abweichung_ep_default = (read_values_default[i].abs()-write_values_default[i].abs());
+        }
+    }
+    std::cout<< "abweichung -1.0 default ist " << abweichung_ep_default << std::endl;
     //berechne abweichung für 1.0
     if(write_values_10.size() != read_values_10.size()){
         std::cout << "compare 1.0 not possible" << std::endl;
@@ -139,6 +153,6 @@ int main() {
 
 
 
-    
+
     return 0;
 }

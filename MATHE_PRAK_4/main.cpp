@@ -86,8 +86,31 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
     std::vector<complex> output_values;
     output_values.clear();
     if(_mode == FOURIER_MODE::FORWARD){
+      //      std::cout << "FM:FORWARD" << std::endl;
     //frequenz to sum
         output_values = _values;
+
+
+        //redindexing by http://www.drdobbs.com/cpp/a-simple-and-efficient-fft-implementatio/199500857
+        // reverse-binary reindexing
+        long nn = _values.size();
+        long n = _values.size()<<1;
+        long i = 0;
+        long j=1;
+        for (i=1; i<n; i+=2) {
+            if (j>i) {
+                swap(_values[j-1], _values[i-1]);
+                swap(_values[j], _values[i]);
+            }
+            long m = nn;
+            while (m>=2 && j>m) {
+                j -= m;
+                m >>= 1;
+            }
+            j += m;
+        };
+
+
 
         /*
          *
@@ -99,27 +122,22 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
          */
         //https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation
         for (int rek_ebene = 0; rek_ebene < _values.size(); ++rek_ebene) {
-            int fft_abschnitte = pow(2.0,(double)_values.size()-rek_ebene-1);
+            int fft_abschnitte = _values.size()-rek_ebene-1;
             for (int abschnitt = 0; abschnitt < fft_abschnitte; ++abschnitt) {
 
-                int fft_element = pow(2.0,rek_ebene) -1;
+                int fft_element = rek_ebene -1;
                 for (int element = 0; element < fft_element; ++element) {
 
-                    int index_links = pow(2.0,rek_ebene+1)*abschnitt+element;
+                    int index_links =(rek_ebene+1)*abschnitt+element;
                     int index_rechts = index_links + pow(2.0,rek_ebene);
-                    
-                    double phi_links =-1.0*PI*(element/pow(2.0,rek_ebene));
-                    double  phi_rechts = -1.0*PI*(element/pow(2.0,rek_ebene));
+
+                    double phi_links =-1.0*PI*(element/rek_ebene);
+                    double  phi_rechts = -1.0*PI*(element/rek_ebene);
 
                     output_values[index_links] = _values[index_links] + complex(phi_links) *_values[index_rechts];
                     output_values[index_rechts] = _values[index_links] - complex(phi_rechts) * _values[index_rechts];
                 }
-
-
             }
-
-
-
         }
 
 

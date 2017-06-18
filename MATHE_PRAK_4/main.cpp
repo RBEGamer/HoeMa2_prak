@@ -95,14 +95,16 @@ enum FOURIER_MODE{
 
 std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = FOURIER_MODE::FORWARD){
     std::vector<complex> output_values;
+    http://paulbourke.net/miscellaneous/dft/
+
     output_values.clear();
     if(_mode == FOURIER_MODE::FORWARD){
       //      std::cout << "FM:FORWARD" << std::endl;
     //frequenz to sum
         for (int i = 0; i < _values.size(); ++i) {
-            output_values.push_back(complex(0.0f,0.0f));
+            output_values.push_back(_values[i]);
         }
-
+/*
             int n = _values.size();
             for (int k = 0; k < n; k++) {  // For each output element
                 double sumreal = 0;
@@ -114,12 +116,12 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
                 }
                 output_values[k]= complex(sumreal,sumimag);
             }
+*/
 
 
 
 
 
-/*
         //redindexing by http://www.drdobbs.com/cpp/a-simple-and-efficient-fft-implementatio/199500857
         // reverse-binary reindexing
         long nn = _values.size();
@@ -140,9 +142,9 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
         };
 
 
-*/
 
-/*
+
+
         //https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation
         for (int rek_ebene = 0; rek_ebene < _values.size(); ++rek_ebene) {
             int fft_abschnitte = _values.size()-rek_ebene-1;
@@ -164,7 +166,7 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
         }
 
 
-*/
+
 
 
     }else if(_mode == FOURIER_MODE::BACK){
@@ -200,6 +202,8 @@ int main() {
     read_values_default = fourier(read_values_default,FOURIER_MODE::BACK);
     read_values_10 = fourier(read_values_10,FOURIER_MODE::BACK);
     read_values_01 = fourier(read_values_01,FOURIER_MODE::BACK);
+
+
     //berechne abweichung für -1.0f defualt
     long compare_index_default = write_values_default.size();
     if(read_values_default.size() > compare_index_default){

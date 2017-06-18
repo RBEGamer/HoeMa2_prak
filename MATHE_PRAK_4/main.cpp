@@ -52,7 +52,7 @@ long werte_ausgeben(char *dateiname, vector<complex> werte, double epsilon=-1.0,
     int N = werte.size();
     // File oeffnen
     ofstream fp;
-    fp.open(dateiname);
+    fp.open(dateiname,ios_base::trunc);
     if(fp.fail()){
         std::cout << "file could not open - export" << std::endl;
         return -1;
@@ -210,9 +210,5 @@ int main() {
         }
     }
     std::cout<< "abweichung 0.1 ist " << abweichung_ep_01 << std::endl;
-
-
-
-
     return 0;
 }

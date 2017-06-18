@@ -141,7 +141,7 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
             j += m;
         };
 
-
+//anschauen http://www.rrhess.de/pdf/Skript-FFT.pdf ganz unten
 
 
 

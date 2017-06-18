@@ -13,7 +13,7 @@ vector<complex>  werte_einlesen(char *dateiname)
 {
     int i, N, idx;
     double re, im;
-    vector<complex> werte;
+    std::vector<complex> werte;
     // File oeffnen
     ifstream fp;
     fp.open(dateiname);
@@ -24,11 +24,15 @@ vector<complex>  werte_einlesen(char *dateiname)
     }
     // Dimension einlesen
     fp >> N;
+    std::cout << "es sind " << N << "sätzen in der tabelle" <<std::endl;
     // Werte-Vektor anlegen
     werte.resize(N);
+    werte.clear();
     complex null(0.0,0.0);
-    for (i = 0; i<N; i++)
-        werte[i] = null;
+    for (i = 0; i<N; i++){
+        werte.push_back(null);
+    }
+
     // Eintraege einlesen und im Werte-Vektor ablegen
     while (!fp.eof())
     {
@@ -42,35 +46,42 @@ vector<complex>  werte_einlesen(char *dateiname)
     std::cout << "values_read:" << werte.size() << std::endl;
     return werte;
 }
-long werte_ausgeben(char *dateiname, vector<complex> werte, double epsilon=-1.0, vector<complex>* werte_exp = nullptr)
-{
-    if(werte_exp != nullptr){
+long werte_ausgeben(char *dateiname, vector<complex> werte, double epsilon=-1.0, vector<complex>* werte_exp = nullptr) {
+    if (werte_exp != nullptr) {
         werte_exp->clear();
     }
     long exported = 0;
     int i;
-    int N = werte.size();
+    int N = 0;
+
+    for (i = 0; i < werte.size(); i++){
+        if (werte[i].abs() > epsilon) {
+            N++;
+        }
+    }
+
     // File oeffnen
     ofstream fp;
-    fp.open(dateiname,ios_base::trunc);
-    if(fp.fail()){
+    fp.open(dateiname, ios_base::trunc);
+    if (fp.fail()) {
         std::cout << "file could not open - export" << std::endl;
         return -1;
     }
     // Dimension in das File schreiben
     fp << N << endl;
     // Eintraege in das File schreiben
-    if(N <= 0){
+    if (N < 0) {
         fp.close();
-        return  exported;
+        return exported;
     }
     for (i = 0; i < N; i++)
-        if (werte[i].abs() > epsilon)
+        if (werte[i].abs() > epsilon) {
             exported++;
             fp << i << "\t" << werte[i].get_re() << "\t" << werte[i].get_im() << endl;
-            if(werte_exp != nullptr){
-                werte_exp->push_back(werte[i]);
-            }
+            if (werte_exp != nullptr) {
+            werte_exp->push_back(werte[i]);
+        }
+    }
     // File schliessen
     fp.close();
     return exported;
@@ -88,9 +99,27 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
     if(_mode == FOURIER_MODE::FORWARD){
       //      std::cout << "FM:FORWARD" << std::endl;
     //frequenz to sum
-        output_values = _values;
+        for (int i = 0; i < _values.size(); ++i) {
+            output_values.push_back(complex(0.0f,0.0f));
+        }
+
+            int n = _values.size();
+            for (int k = 0; k < n; k++) {  // For each output element
+                double sumreal = 0;
+                double sumimag = 0;
+                for (int t = 0; t < n; t++) {  // For each input element
+                    double angle = 2 * PI * t * k / n;
+                    sumreal +=  _values[t].get_re() * cos(angle) + _values[t].get_im() * sin(angle);
+                    sumimag += -_values[t].get_re() * sin(angle) + _values[t].get_im() * cos(angle);
+                }
+                output_values[k]= complex(sumreal,sumimag);
+            }
 
 
+
+
+
+/*
         //redindexing by http://www.drdobbs.com/cpp/a-simple-and-efficient-fft-implementatio/199500857
         // reverse-binary reindexing
         long nn = _values.size();
@@ -111,15 +140,9 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
         };
 
 
+*/
 
-        /*
-         *
-         * Wenn im obigen Algorithmus zuerst die beiden Hälften des Feldes miteinander
-         * vertauscht werden, und dann die beiden Hälften dieser Hälften, usw. –
-         * dann ist das Ergebnis am Ende dasselbe,
-         * als würden alle Elemente des Feldes von 0 aufsteigend nummeriert werden und
-         * anschließend die Reihenfolge der Bits der Nummern der Felder umgekehrt.
-         */
+/*
         //https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation
         for (int rek_ebene = 0; rek_ebene < _values.size(); ++rek_ebene) {
             int fft_abschnitte = _values.size()-rek_ebene-1;
@@ -141,7 +164,7 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
         }
 
 
-
+*/
 
 
     }else if(_mode == FOURIER_MODE::BACK){
@@ -178,33 +201,36 @@ int main() {
     read_values_10 = fourier(read_values_10,FOURIER_MODE::BACK);
     read_values_01 = fourier(read_values_01,FOURIER_MODE::BACK);
     //berechne abweichung für -1.0f defualt
-    if(write_values_10.size() != read_values_10.size()){
-        std::cout << "compare default not possible" << std::endl;
+    long compare_index_default = write_values_default.size();
+    if(read_values_default.size() > compare_index_default){
+        compare_index_default = read_values_default.size();
     }
     double abweichung_ep_default = -1.0f;
-    for (int i = 0; i < write_values_default.size(); ++i) {
+    for (int i = 0; i < compare_index_default; ++i) {
         if((read_values_default[i].abs()-write_values_default[i].abs()) > abweichung_ep_default){
             abweichung_ep_default = (read_values_default[i].abs()-write_values_default[i].abs());
         }
     }
     std::cout<< "abweichung -1.0 default ist " << abweichung_ep_default << std::endl;
     //berechne abweichung für 1.0
-    if(write_values_10.size() != read_values_10.size()){
-        std::cout << "compare 1.0 not possible" << std::endl;
+    long compare_index_10 = write_values_10.size();
+    if(read_values_10.size() > compare_index_10){
+        compare_index_10 = read_values_10.size();
     }
     double abweichung_ep_10 = -1.0f;
-    for (int i = 0; i < write_values_10.size(); ++i) {
+    for (int i = 0; i < compare_index_10; ++i) {
         if((read_values_10[i].abs()-write_values_10[i].abs()) > abweichung_ep_10){
          abweichung_ep_10 = (read_values_10[i].abs()-write_values_10[i].abs());
          }
     }
     std::cout<< "abweichung 0.1 ist " << abweichung_ep_10 << std::endl;
     //berechne abweiung für 0.1f
-    if(write_values_01.size() != read_values_01.size()){
-        std::cout << "compare 0.1 not possible" << std::endl;
+    long compare_index_01 = write_values_01.size();
+    if(read_values_01.size() > compare_index_01){
+        compare_index_01 = read_values_10.size();
     }
     double abweichung_ep_01 = -1.0f;
-    for (int i = 0; i < write_values_01.size(); ++i) {
+    for (int i = 0; i < compare_index_01; ++i) {
         if((read_values_01[i].abs()-write_values_01[i].abs()) > abweichung_ep_01){
             abweichung_ep_01 = (read_values_01[i].abs()-write_values_01[i].abs());
         }

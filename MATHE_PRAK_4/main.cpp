@@ -117,15 +117,15 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
                 output_values[k]= complex(sumreal,sumimag);
             }
 */
+        long data_size = 512;
+        //long data_size = _values.size();
 
 
 
 
-
-        //redindexing by http://www.drdobbs.com/cpp/a-simple-and-efficient-fft-implementatio/199500857
         // reverse-binary reindexing
-        long nn = _values.size();
-        long n = _values.size()<<1;
+        long nn = data_size;
+        long n = data_size<<1;
         long i = 0;
         long j=1;
         for (i=1; i<n; i+=2) {
@@ -146,14 +146,14 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
 
 
         //https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation
-        for (int rek_ebene = 0; rek_ebene < _values.size(); ++rek_ebene) {
-            int fft_abschnitte = _values.size()-rek_ebene-1;
+        for (int rek_ebene = 0; rek_ebene < data_size; ++rek_ebene) {
+            long long fft_abschnitte = (long)pow(2.0f,(float)(data_size-rek_ebene-1));
             for (int abschnitt = 0; abschnitt < fft_abschnitte; ++abschnitt) {
 
-                int fft_element = rek_ebene -1;
+                int fft_element = (int)pow(2.0f,(float)(rek_ebene -1));
                 for (int element = 0; element < fft_element; ++element) {
 
-                    int index_links =(rek_ebene+1)*abschnitt+element;
+                    int index_links =(pow(2.0f,(float)(rek_ebene+1))*abschnitt)+element;
                     int index_rechts = index_links + pow(2.0,rek_ebene);
 
                     double phi_links =-1.0*PI*(element/rek_ebene);

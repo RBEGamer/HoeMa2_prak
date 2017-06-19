@@ -93,17 +93,27 @@ enum FOURIER_MODE{
     BACK
 };
 
+
+//anschauen http://www.rrhess.de/pdf/Skript-FFT.pdf ganz unten
+//     http://paulbourke.net/miscellaneous/dft/
+//https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation
+
+
+
+
 std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = FOURIER_MODE::FORWARD){
     std::vector<complex> output_values;
-    http://paulbourke.net/miscellaneous/dft/
-
     output_values.clear();
+    for (int i = 0; i < _values.size(); ++i) {
+        output_values.push_back(_values[i]);
+    }
+
+
+
     if(_mode == FOURIER_MODE::FORWARD){
-      //      std::cout << "FM:FORWARD" << std::endl;
+      std::cout << "FM:FORWARD" << std::endl;
     //frequenz to sum
-        for (int i = 0; i < _values.size(); ++i) {
-            output_values.push_back(_values[i]);
-        }
+
 /*
             int n = _values.size();
             for (int k = 0; k < n; k++) {  // For each output element
@@ -117,8 +127,8 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
                 output_values[k]= complex(sumreal,sumimag);
             }
 */
-        long data_size = 512;
-        //long data_size = _values.size();
+        //long data_size = 512;
+        long data_size = _values.size();
 
         unsigned butterflySize;   // size for actual butterfly calculation
         int i, j, k;              // local index variables
@@ -181,11 +191,7 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
             j += m;
         };
 */
-//anschauen http://www.rrhess.de/pdf/Skript-FFT.pdf ganz unten
 
-
-
-        //https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation
 /*
         for (int rek_ebene = 0; rek_ebene < data_size; ++rek_ebene) {
             long long fft_abschnitte = (long)pow(2.0f,(float)(data_size-rek_ebene-1));
@@ -256,7 +262,7 @@ int main() {
             abweichung_ep_default = (read_values_default[i].abs()-write_values_default[i].abs());
         }
     }
-    std::cout<< "abweichung -1.0 default ist " << abweichung_ep_default << std::endl;
+    std::cout<< "max abweichung -1.0 default ist " << abweichung_ep_default << std::endl;
     //berechne abweichung für 1.0
     long compare_index_10 = write_values_10.size();
     if(read_values_10.size() > compare_index_10){
@@ -268,7 +274,7 @@ int main() {
          abweichung_ep_10 = (read_values_10[i].abs()-write_values_10[i].abs());
          }
     }
-    std::cout<< "abweichung 0.1 ist " << abweichung_ep_10 << std::endl;
+    std::cout<< "max abweichung 0.1 ist " << abweichung_ep_10 << std::endl;
     //berechne abweiung für 0.1f
     long compare_index_01 = write_values_01.size();
     if(read_values_01.size() > compare_index_01){
@@ -280,6 +286,6 @@ int main() {
             abweichung_ep_01 = (read_values_01[i].abs()-write_values_01[i].abs());
         }
     }
-    std::cout<< "abweichung 0.1 ist " << abweichung_ep_01 << std::endl;
+    std::cout<< "max abweichung 0.1 ist " << abweichung_ep_01 << std::endl;
     return 0;
 }

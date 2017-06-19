@@ -120,9 +120,49 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
         long data_size = 512;
         //long data_size = _values.size();
 
+        unsigned butterflySize;   // size for actual butterfly calculation
+        int i, j, k;              // local index variables
+        complex wActual(0.0,0.0);  // actual rotation factor
+        complex wStep(0.0);    // step rotation factors
+        complex tmp(0.0,0.0);      // temp. value for butterfly calculation
+        // loop over all level of FFT
+        for(butterflySize=data_size/2; butterflySize>0; butterflySize/=2) {
+            // evaluate angle step and set first angle
+            wStep = complex(cos(-PI/butterflySize), sin(-PI/butterflySize));
+            wActual = complex(1, 0);
+            // loop over number of butterflys
+            for(j=0; j<butterflySize; j++) {
+                // loop over number of FFTs
+                for(i=j; i<data_size; i+=2*butterflySize) {
+                    // get index of second element
+                    k = i+butterflySize;
+                    // perform butterfly calculation
+                    tmp = output_values[i];          // store one element
+                    output_values[i] =output_values[i] + output_values[k];     // take sum
+                    output_values[k] = tmp-output_values[k];  // take difference
+                    output_values[k] = output_values[k]*wActual;     // multiply with rotation factor
+                }
+                // evaluate next rotation factor
+                wActual = wActual*wStep;
+            }
+        }
+        // perform bit reversal
+        j = 0;
+        for(i=0; i<data_size; i++) {
+            if(j>i) {
+                // swap numbers
+                tmp = output_values[i];
+                output_values[i] = output_values[j];
+                output_values[j] = tmp;
+            }
+            k = data_size/2;
+            while(k>=2 && j>=k) {
+                j -= k;
+                k /= 2; }
+            j += k; }
 
 
-
+/*
         // reverse-binary reindexing
         long nn = data_size;
         long n = data_size<<1;
@@ -140,12 +180,13 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
             }
             j += m;
         };
-
+*/
 //anschauen http://www.rrhess.de/pdf/Skript-FFT.pdf ganz unten
 
 
 
         //https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation
+/*
         for (int rek_ebene = 0; rek_ebene < data_size; ++rek_ebene) {
             long long fft_abschnitte = (long)pow(2.0f,(float)(data_size-rek_ebene-1));
             for (int abschnitt = 0; abschnitt < fft_abschnitte; ++abschnitt) {
@@ -164,7 +205,7 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
                 }
             }
         }
-
+*/
 
 
 

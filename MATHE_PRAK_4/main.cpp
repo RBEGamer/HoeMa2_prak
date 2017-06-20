@@ -102,6 +102,7 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
    if (_mode == FOURIER_MODE::FORWARD) {
 	  std::cout << "FM:FORWARD" << std::endl;
 	  int AnzahlFunktionsWerte = _values.size();
+	  
 	  std::vector<complex> f_values;
 	  f_values.clear();
 	  
@@ -123,7 +124,7 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
 			
 			
 			
-			complex w_k(((2 * M_PI * k*-n) / AnzahlFunktionsWerte));
+			complex w_k(((2 * M_PI *-n*k) / AnzahlFunktionsWerte));
 			//complex w_minus_n(((2 * M_PI * -n) / AnzahlFunktionsWerte));
 		 
 			//std::cout <<" Berechnung Matrix " <<k <<"    " << n<<" " ;
@@ -169,7 +170,8 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
 	  
    } else if (_mode == FOURIER_MODE::BACK) {
 	  
-	  int AnzahlFunktionsWerte = _values.size();
+	  int AnzahlFunktionsWerte = 1000;
+	  int AnzahlKoeffizienten = _values.size();
 	  
 	  std::cout << "FM:BACK" << AnzahlFunktionsWerte << std::endl;
    
@@ -177,7 +179,7 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
 	  
 	  std::vector<complex> c_values;
 	  c_values.clear();
-	  for (int i = 0; i < AnzahlFunktionsWerte; ++i) {
+	  for (int i = 0; i < AnzahlKoeffizienten; ++i) {
 		 c_values.push_back(_values[i]);
 		// std::cout << "C Werte Ruecktransformation" << i << " ";
 		//		   _values[i].pint();
@@ -191,11 +193,11 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
 	  for (int k = 0; k < AnzahlFunktionsWerte; ++k) {
 		 
 		 complex ReTransResult;
-		 std::vector<complex> f_at_indexTransResult(AnzahlFunktionsWerte);
+		 std::vector<complex> f_at_indexTransResult(AnzahlKoeffizienten);
 		 f_at_indexTransResult.clear();
 		 
 		 
-		 for (int n = 0; n < AnzahlFunktionsWerte; ++n) {
+		 for (int n = 0; n < AnzahlKoeffizienten; ++n) {
 			
 			complex w_k((2 * M_PI * k*n) / AnzahlFunktionsWerte);
 			
@@ -204,23 +206,24 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
 		 }
 	  
 	  
-	  for (int n = 0; n < AnzahlFunktionsWerte; ++n) {
+	  for (int n = 0; n < AnzahlKoeffizienten; ++n) {
 		 
 		 ReTransResult = ReTransResult + f_at_indexTransResult.at(n) * c_values.at(n);
 		 
 	  }
 	  
-	  ReTransResult = ReTransResult * (1 / (sqrt(AnzahlFunktionsWerte)));
+	  ReTransResult = (ReTransResult * (1 / (sqrt(AnzahlFunktionsWerte))));
 	  
 	  Re_transformation_values.push_back(ReTransResult);
-   }
+   
+	  }
    
 	  for (int n = 0; n < AnzahlFunktionsWerte; ++n) {
 	  
 		
-		 std::cout <<"F Transformation " <<n << " " ;
-		 Re_transformation_values.at(n).pint() ;
-		std::cout <<std::endl;
+		 //std::cout <<"F Transformation " <<n << " " ;
+		// Re_transformation_values.at(n).pint() ;
+		//std::cout <<std::endl;
 	  
 	  }
 	  
@@ -248,7 +251,7 @@ int main() {
     //EXPORT VALUES
     std::vector<complex> write_values_default = werte_ausgeben("../output_default.txt",fourier_forward,-1.0);
     std::vector<complex> write_values_10 = werte_ausgeben("../output_10.txt",fourier_forward,1.0);
-    std::vector<complex> write_values_01 = werte_ausgeben("../output_10.txt",fourier_forward,0.1);
+    std::vector<complex> write_values_01 = werte_ausgeben("../output_01.txt",fourier_forward,0.1);
     //mache hintransformtation
     std::cout << "es wurden " << write_values_default.size() << " werte mit epsilon=-1.0 exportiert" << std::endl;
     std::cout << "es wurden " <<  write_values_10.size() << " werte mit epsilon=1.0 exportiert" << std::endl;
@@ -267,8 +270,8 @@ int main() {
 
     //WRITE BACK TRANS
     werte_ausgeben("../output_BACK_default.txt",retrans_values_default,-1.0, true);
-    werte_ausgeben("../output_BACK_10.txt",retrans_values_10,1.0, true);
-    werte_ausgeben("../output_BACK_01.txt",retrans_values_10,0.1, true);
+    werte_ausgeben("../output_BACK_10.txt",retrans_values_10,-1, true);
+    werte_ausgeben("../output_BACK_01.txt",retrans_values_01,-1, true);
 
     //berechne abweichung für -1.0f defualt
     long compare_index_default = retrans_values_default.size();
@@ -287,23 +290,32 @@ int main() {
   
   
     //berechne abweichung für 1.0
-    long compare_index_10 = retrans_values_10.size();
+   long compare_index_10 = retrans_values_10.size();
+   if(read_values_10.size() < compare_index_10){
+	  compare_index_10 = read_values_10.size();
+   }
   
-    double abweichung_ep_10 = -1.0f;
+    double abweichung_ep_10 = -1.0f;;
     for (int i = 0; i < compare_index_10; ++i) {
-        if((original_values[i].abs()-retrans_values_10[i].abs()) > abweichung_ep_10){
+       //std::cout<<"ORIGINAL: " << original_values[i].abs();
+	   //std::cout<<"    Transformiert: " << retrans_values_10[i].abs();
+	   //std::cout<<std::endl;
+	   
+	   if(((original_values[i].abs()-retrans_values_10[i].abs())) < abweichung_ep_10){
          abweichung_ep_10 = (original_values[i].abs()-retrans_values_10[i].abs());
          }
     }
     std::cout<< "max abweichung 1.0 ist " << abweichung_ep_10 << std::endl;
-    
-   
    
    
    //berechne abweiung für 0.1f
-    long compare_index_01 = retrans_values_01.size();
+   long compare_index_01 = retrans_values_01.size();
+   if(read_values_01.size() < compare_index_01){
+	  compare_index_01 = read_values_01.size();
+   }
    
-    double abweichung_ep_01 = -1.0f;
+   
+   double abweichung_ep_01 = (original_values[0].abs()-retrans_values_01[0].abs());
     for (int i = 0; i < compare_index_01; ++i) {
         if((original_values[i].abs()-retrans_values_01[i].abs()) > abweichung_ep_01){
             abweichung_ep_01 = (original_values[i].abs()-retrans_values_01[i].abs());

@@ -96,14 +96,15 @@ enum FOURIER_MODE{
 
 std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = FOURIER_MODE::FORWARD) {
    
-   int AnzahlFunktionsWerte = _values.size();
+ 
    
    
    if (_mode == FOURIER_MODE::FORWARD) {
 	  std::cout << "FM:FORWARD" << std::endl;
-	  
+	  int AnzahlFunktionsWerte = _values.size();
 	  std::vector<complex> f_values;
 	  f_values.clear();
+	  
 	  for (int i = 0; i < AnzahlFunktionsWerte; ++i) {
 		 f_values.push_back(_values[i]);
 	  }
@@ -168,8 +169,12 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
 	  
    } else if (_mode == FOURIER_MODE::BACK) {
 	  
-	  std::cout << "FM:BACK" << std::endl;
-
+	  int AnzahlFunktionsWerte = _values.size();
+	  
+	  std::cout << "FM:BACK" << AnzahlFunktionsWerte << std::endl;
+   
+	 
+	  
 	  std::vector<complex> c_values;
 	  c_values.clear();
 	  for (int i = 0; i < AnzahlFunktionsWerte; ++i) {
@@ -262,42 +267,46 @@ int main() {
 
     //WRITE BACK TRANS
     werte_ausgeben("../output_BACK_default.txt",retrans_values_default,-1.0, true);
-    werte_ausgeben("../output_BACK_10.txt",retrans_values_default,1.0, true);
-    werte_ausgeben("../output_BACK_01.txt",retrans_values_default,0.1, true);
+    werte_ausgeben("../output_BACK_10.txt",retrans_values_10,1.0, true);
+    werte_ausgeben("../output_BACK_01.txt",retrans_values_10,0.1, true);
 
     //berechne abweichung für -1.0f defualt
-    long compare_index_default = write_values_default.size();
+    long compare_index_default = retrans_values_default.size();
     if(read_values_default.size() > compare_index_default){
         compare_index_default = read_values_default.size();
     }
     double abweichung_ep_default = -1.0f;
     for (int i = 0; i < compare_index_default; ++i) {
-        if((read_values_default[i].abs()-write_values_default[i].abs()) > abweichung_ep_default){
-            abweichung_ep_default = (read_values_default[i].abs()-write_values_default[i].abs());
+        if((original_values[i].abs()-retrans_values_default[i].abs()) > abweichung_ep_default){
+            abweichung_ep_default = (original_values[i].abs()-retrans_values_default[i].abs());
         }
     }
     std::cout<< "max abweichung -1.0 default ist " << abweichung_ep_default << std::endl;
+  
+  
+  
+  
     //berechne abweichung für 1.0
-    long compare_index_10 = write_values_10.size();
-    if(read_values_10.size() > compare_index_10){
-        compare_index_10 = read_values_10.size();
-    }
+    long compare_index_10 = retrans_values_10.size();
+  
     double abweichung_ep_10 = -1.0f;
     for (int i = 0; i < compare_index_10; ++i) {
-        if((read_values_10[i].abs()-write_values_10[i].abs()) > abweichung_ep_10){
-         abweichung_ep_10 = (read_values_10[i].abs()-write_values_10[i].abs());
+        if((original_values[i].abs()-retrans_values_10[i].abs()) > abweichung_ep_10){
+         abweichung_ep_10 = (original_values[i].abs()-retrans_values_10[i].abs());
          }
     }
-    std::cout<< "max abweichung 0.1 ist " << abweichung_ep_10 << std::endl;
-    //berechne abweiung für 0.1f
-    long compare_index_01 = write_values_01.size();
-    if(read_values_01.size() > compare_index_01){
-        compare_index_01 = read_values_10.size();
-    }
+    std::cout<< "max abweichung 1.0 ist " << abweichung_ep_10 << std::endl;
+    
+   
+   
+   
+   //berechne abweiung für 0.1f
+    long compare_index_01 = retrans_values_01.size();
+   
     double abweichung_ep_01 = -1.0f;
     for (int i = 0; i < compare_index_01; ++i) {
-        if((read_values_01[i].abs()-write_values_01[i].abs()) > abweichung_ep_01){
-            abweichung_ep_01 = (read_values_01[i].abs()-write_values_01[i].abs());
+        if((original_values[i].abs()-retrans_values_01[i].abs()) > abweichung_ep_01){
+            abweichung_ep_01 = (original_values[i].abs()-retrans_values_01[i].abs());
         }
     }
     std::cout<< "max abweichung 0.1 ist " << abweichung_ep_01 << std::endl;

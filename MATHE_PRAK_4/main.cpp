@@ -3,11 +3,10 @@
 
 #include <fstream>
 #include <vector>
+#include <math.h>
 using namespace std;
 
 
-
-#define PI M_1_PI
 //A2
 vector<complex>  werte_einlesen(char *dateiname)
 {
@@ -56,7 +55,8 @@ long werte_ausgeben(char *dateiname, vector<complex> werte, double epsilon=-1.0,
 
     for (i = 0; i < werte.size(); i++){
         if (werte[i].abs() > epsilon) {
-            N++;
+        
+		   N++;
         }
     }
 
@@ -73,15 +73,19 @@ long werte_ausgeben(char *dateiname, vector<complex> werte, double epsilon=-1.0,
     if (N < 0) {
         fp.close();
         return exported;
+	   
+	  
     }
-    for (i = 0; i < N; i++)
-        if (werte[i].abs() > epsilon) {
-            exported++;
-            fp << i << "\t" << werte[i].get_re() << "\t" << werte[i].get_im() << endl;
-            if (werte_exp != nullptr) {
-            werte_exp->push_back(werte[i]);
-        }
-    }
+    for (i = 0; i < werte.size(); i++)
+	   if (werte[i].abs() > epsilon) {
+		  exported++;
+		  fp << i << "\t" << werte[i].get_re() << "\t" << werte[i].get_im() << endl;
+		  if (werte_exp != nullptr) {
+			 werte_exp->push_back(werte[i]);
+		  }
+		 
+	   }
+	
     // File schliessen
     fp.close();
     return exported;
@@ -94,25 +98,79 @@ enum FOURIER_MODE{
 };
 
 
-//anschauen http://www.rrhess.de/pdf/Skript-FFT.pdf ganz unten
-//     http://paulbourke.net/miscellaneous/dft/
-//https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation
 
 
 
 
-std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = FOURIER_MODE::FORWARD){
-    std::vector<complex> output_values;
-    output_values.clear();
-    for (int i = 0; i < _values.size(); ++i) {
-        output_values.push_back(_values[i]);
-    }
-
-
-
-    if(_mode == FOURIER_MODE::FORWARD){
-      std::cout << "FM:FORWARD" << std::endl;
-    //frequenz to sum
+std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = FOURIER_MODE::FORWARD) {
+   
+   int AnzahlFunktionsWerte = _values.size();
+   
+   
+   if (_mode == FOURIER_MODE::FORWARD) {
+	  std::cout << "FM:FORWARD" << std::endl;
+	  
+	  std::vector<complex> f_values;
+	  f_values.clear();
+	  for (int i = 0; i < AnzahlFunktionsWerte; ++i) {
+		 f_values.push_back(_values[i]);
+	  }
+	  
+	  std::vector<complex> c_transformation_values(AnzahlFunktionsWerte);
+	  c_transformation_values.clear();
+	  
+	  for (int k = 0; k < AnzahlFunktionsWerte; ++k) {
+		 
+		 complex cResult;
+		 std::vector<complex> w_at_indexTransResult(AnzahlFunktionsWerte);
+		 w_at_indexTransResult.clear();
+		 
+		 
+		 for (int n = 0; n < AnzahlFunktionsWerte; ++n) {
+			
+			
+			
+			complex w_k(((2 * M_PI * k*-n) / AnzahlFunktionsWerte));
+			//complex w_minus_n(((2 * M_PI * -n) / AnzahlFunktionsWerte));
+		 
+			//std::cout <<" Berechnung Matrix " <<k <<"    " << n<<" " ;
+			//std::cout << "Hochwert  von w_k: " << ((2 * M_PI * k) / AnzahlFunktionsWerte) <<"            ";
+			//std::cout		  << "w_k ";  w_k.pint();
+			
+			//std::cout << endl;
+			
+			//std::cout << "w_minus_n      " << ((2 * M_PI * -n) / AnzahlFunktionsWerte) << "";
+			//w_minus_n.pint();
+			//std::cout << std::endl;
+			
+			
+			
+			//std::cout << "Multiplikation Resultat " ;
+			//w_minus_n_k.pint();
+			//std::cout << std::endl;
+			//std::cout << std::endl;
+			
+			w_at_indexTransResult.push_back(w_k);
+		 }
+		 
+		 
+		 for (int n = 0; n < AnzahlFunktionsWerte; ++n) {
+			
+			cResult = cResult + w_at_indexTransResult.at(n) * f_values.at(n);
+		 
+			//std::cout << "Aufaddieren cResult:  "  ;
+			//cResult.pint();
+			//std::cout << std::endl;
+		 }
+		 
+		 
+		 
+		 cResult = cResult * (1 / (sqrt(AnzahlFunktionsWerte)));
+		 //std::cout << "Aufaddieren cResult: Dividiert  ";
+		// cResult.pint();
+		 c_transformation_values.push_back(cResult);
+	 
+	   }
 
 /*
             int n = _values.size();
@@ -127,69 +185,69 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
                 output_values[k]= complex(sumreal,sumimag);
             }
 */
-        //long data_size = 512;
-        long data_size = _values.size();
+	  /*long data_size = 512;
+	  long data_size = _values.size();
 
-        unsigned butterflySize;   // size for actual butterfly calculation
-        int i, j, k;              // local index variables
-        complex wActual(0.0,0.0);  // actual rotation factor
-        complex wStep(0.0);    // step rotation factors
-        complex tmp(0.0,0.0);      // temp. value for butterfly calculation
-        // loop over all level of FFT
-        for(butterflySize=data_size/2; butterflySize>0; butterflySize/=2) {
-            // evaluate angle step and set first angle
-            wStep = complex(cos(-PI/butterflySize), sin(-PI/butterflySize));
-            wActual = complex(1, 0);
-            // loop over number of butterflys
-            for(j=0; j<butterflySize; j++) {
-                // loop over number of FFTs
-                for(i=j; i<data_size; i+=2*butterflySize) {
-                    // get index of second element
-                    k = i+butterflySize;
-                    // perform butterfly calculation
-                    tmp = output_values[i];          // store one element
-                    output_values[i] =output_values[i] + output_values[k];     // take sum
-                    output_values[k] = tmp-output_values[k];  // take difference
-                    output_values[k] = output_values[k]*wActual;     // multiply with rotation factor
-                }
-                // evaluate next rotation factor
-                wActual = wActual*wStep;
-            }
-        }
-        // perform bit reversal
-        j = 0;
-        for(i=0; i<data_size; i++) {
-            if(j>i) {
-                // swap numbers
-                tmp = output_values[i];
-                output_values[i] = output_values[j];
-                output_values[j] = tmp;
-            }
-            k = data_size/2;
-            while(k>=2 && j>=k) {
-                j -= k;
-                k /= 2; }
-            j += k; }
+	  unsigned butterflySize;   // size for actual butterfly calculation
+	  int i, j, k;              // local index variables
+	  complex wActual(0.0,0.0);  // actual rotation factor
+	  complex wStep(0.0);    // step rotation factors
+	  complex tmp(0.0,0.0);      // temp. value for butterfly calculation
+	  // loop over all level of FFT
+	  for(butterflySize=data_size/2; butterflySize>0; butterflySize/=2) {
+		  // evaluate angle step and set first angle
+		  wStep = complex(cos(-PI/butterflySize), sin(-PI/butterflySize));
+		  wActual = complex(1, 0);
+		  // loop over number of butterflys
+		  for(j=0; j<butterflySize; j++) {
+			  // loop over number of FFTs
+			  for(i=j; i<data_size; i+=2*butterflySize) {
+				  // get index of second element
+				  k = i+butterflySize;
+				  // perform butterfly calculation
+				  tmp = output_values[i];          // store one element
+				  output_values[i] =output_values[i] + output_values[k];     // take sum
+				  output_values[k] = tmp-output_values[k];  // take difference
+				  output_values[k] = output_values[k]*wActual;     // multiply with rotation factor
+			  }
+			  // evaluate next rotation factor
+			  wActual = wActual*wStep;
+		  }
+	  }
+	  // perform bit reversal
+	  j = 0;
+	  for(i=0; i<data_size; i++) {
+		  if(j>i) {
+			  // swap numbers
+			  tmp = output_values[i];
+			  output_values[i] = output_values[j];
+			  output_values[j] = tmp;
+		  }
+		  k = data_size/2;
+		  while(k>=2 && j>=k) {
+			  j -= k;
+			  k /= 2; }
+		  j += k; }
 
 
 /*
-        // reverse-binary reindexing
-        long nn = data_size;
-        long n = data_size<<1;
-        long i = 0;
-        long j=1;
-        for (i=1; i<n; i+=2) {
-            if (j>i) {
-                swap(_values[j-1], _values[i-1]);
-                swap(_values[j], _values[i]);
-            }
-            long m = nn;
-            while (m>=2 && j>m) {
-                j -= m;
-                m >>= 1;
-            }
-            j += m;
-        };
+	  // reverse-binary reindexing
+	  long nn = data_size;
+	  long n = data_size<<1;
+	  long i = 0;
+	  long j=1;
+	  for (i=1; i<n; i+=2) {
+		  if (j>i) {
+			  swap(_values[j-1], _values[i-1]);
+			  swap(_values[j], _values[i]);
+		  }
+		  long m = nn;
+		  while (m>=2 && j>m) {
+			  j -= m;
+			  m >>= 1;
+		  }
+		  j += m;
+	  };
 */
 
 /*
@@ -212,25 +270,83 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
             }
         }
 */
-
-
-
-
-    }else if(_mode == FOURIER_MODE::BACK){
-
-
-        //double to complex
-    }else{
+   
+	  
+	  return c_transformation_values;
+	  
+   }
+   
+   else if (_mode == FOURIER_MODE::BACK) {
+	  
+	  std::cout << "FM:FORWARD" << std::endl;
+	  
+	  std::vector<complex> c_values;
+	  c_values.clear();
+	  for (int i = 0; i < AnzahlFunktionsWerte; ++i) {
+		 c_values.push_back(_values[i]);
+		 std::cout << "C Werte Ruecktransformation" << i << " ";
+				   _values[i].pint();
+		 std::cout << std::endl;
+	  }
+	  
+	  
+	  std::vector<complex> Re_transformation_values(AnzahlFunktionsWerte);
+	  Re_transformation_values.clear();
+	  
+	  for (int k = 0; k < AnzahlFunktionsWerte; ++k) {
+		 
+		 complex ReTransResult;
+		 std::vector<complex> f_at_indexTransResult(AnzahlFunktionsWerte);
+		 f_at_indexTransResult.clear();
+		 
+		 
+		 for (int n = 0; n < AnzahlFunktionsWerte; ++n) {
+			
+			complex w_k((2 * M_PI * k*n) / AnzahlFunktionsWerte);
+			
+			
+			f_at_indexTransResult.push_back(w_k);
+		 }
+	  
+	  
+	  for (int n = 0; n < AnzahlFunktionsWerte; ++n) {
+		 
+		 ReTransResult = ReTransResult + f_at_indexTransResult.at(n) * c_values.at(k);
+		 
+	  }
+	  
+	  ReTransResult = ReTransResult * (1 / (sqrt(AnzahlFunktionsWerte)));
+	  
+	  Re_transformation_values.push_back(ReTransResult);
+   }
+   
+	  for (int n = 0; n < AnzahlFunktionsWerte; ++n) {
+	  
+		
+		 std::cout <<"F Transformation " <<n << " " ;
+		 Re_transformation_values.at(n).pint() ;
+		std::cout <<std::endl;
+	  
+	  }
+	  
+	  
+	  return Re_transformation_values;
+}
+	  
+	   //double to complex
+    else{
         std::cout << "_mode no omplemented" << std::endl;
     }
-    return output_values;
+    
 }
 
 
 
 
 int main() {
-    //read values A4
+   
+   
+   //read values A4
     std::vector<complex> original_values = werte_einlesen("../original.txt");
     //write values A4
 
@@ -246,9 +362,14 @@ int main() {
     std::vector<complex> read_values_10 = werte_einlesen("../output_10.txt");
     std::vector<complex> read_values_01 = werte_einlesen("../output_01.txt");
     //mache rücktransformation
-    read_values_default = fourier(read_values_default,FOURIER_MODE::BACK);
-    read_values_10 = fourier(read_values_10,FOURIER_MODE::BACK);
-    read_values_01 = fourier(read_values_01,FOURIER_MODE::BACK);
+   
+   std::vector<complex> retrans_values_default;
+   std::vector<complex> retrans_values_10;
+   std::vector<complex> retrans_values_01;
+   
+   retrans_values_default = fourier(read_values_default,FOURIER_MODE::BACK);
+   retrans_values_10 = fourier(read_values_10,FOURIER_MODE::BACK);
+   retrans_values_01 = fourier(read_values_01,FOURIER_MODE::BACK);
 
 
     //berechne abweichung für -1.0f defualt
@@ -256,6 +377,7 @@ int main() {
     if(read_values_default.size() > compare_index_default){
         compare_index_default = read_values_default.size();
     }
+   
     double abweichung_ep_default = -1.0f;
     for (int i = 0; i < compare_index_default; ++i) {
         if((read_values_default[i].abs()-write_values_default[i].abs()) > abweichung_ep_default){

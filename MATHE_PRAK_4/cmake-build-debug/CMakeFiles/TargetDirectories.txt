@@ -1,3 +1,3 @@
-/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/marcelochsendorf/Dropbox/GIT_HUB_REPO_CLONES/HoeMa2_prak/MATHE_PRAK_4/cmake-build-debug/CMakeFiles/MATHE_PRAK_4.dir
+/home/henn/2Semester/Hoema2/Praktikum/Praktikum2/Praktikum2/MATHE_PRAK_4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/henn/2Semester/Hoema2/Praktikum/Praktikum2/Praktikum2/MATHE_PRAK_4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/henn/2Semester/Hoema2/Praktikum/Praktikum2/Praktikum2/MATHE_PRAK_4/cmake-build-debug/CMakeFiles/MATHE_PRAK_4.dir

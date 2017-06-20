@@ -174,9 +174,9 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
 	  c_values.clear();
 	  for (int i = 0; i < AnzahlFunktionsWerte; ++i) {
 		 c_values.push_back(_values[i]);
-		 std::cout << "C Werte Ruecktransformation" << i << " ";
-				   _values[i].pint();
-		 std::cout << std::endl;
+		// std::cout << "C Werte Ruecktransformation" << i << " ";
+		//		   _values[i].pint();
+		// std::cout << std::endl;
 	  }
 	  
 	  
@@ -201,7 +201,7 @@ std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = 
 	  
 	  for (int n = 0; n < AnzahlFunktionsWerte; ++n) {
 		 
-		 ReTransResult = ReTransResult + f_at_indexTransResult.at(n) * c_values.at(k);
+		 ReTransResult = ReTransResult + f_at_indexTransResult.at(n) * c_values.at(n);
 		 
 	  }
 	  
@@ -270,7 +270,6 @@ int main() {
     if(read_values_default.size() > compare_index_default){
         compare_index_default = read_values_default.size();
     }
-   
     double abweichung_ep_default = -1.0f;
     for (int i = 0; i < compare_index_default; ++i) {
         if((read_values_default[i].abs()-write_values_default[i].abs()) > abweichung_ep_default){
@@ -302,5 +301,5 @@ int main() {
         }
     }
     std::cout<< "max abweichung 0.1 ist " << abweichung_ep_01 << std::endl;
-    return 0;
+   return 0;
 }

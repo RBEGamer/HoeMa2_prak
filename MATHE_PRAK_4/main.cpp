@@ -5,7 +5,9 @@
 #include <vector>
 #include <math.h>
 using namespace std;
-
+#error("FIX")
+//fix beim vergleich c1-c2).abs
+//fix vvecktoren auffüllen mit nullen
 
 //A2
 vector<complex>  werte_einlesen(char *dateiname)

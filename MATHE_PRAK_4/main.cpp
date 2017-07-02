@@ -57,7 +57,6 @@ vector<complex> werte_ausgeben(char *dateiname, vector<complex>& werte, double e
 
     for (i = 0; i < werte.size(); i++){
         if (ignore_exp || werte[i].abs() > epsilon) {
-        
 		   N++;
         }
     }
@@ -97,10 +96,7 @@ enum FOURIER_MODE{
 };
 
 std::vector<complex> fourier(std::vector<complex> _values, FOURIER_MODE _mode = FOURIER_MODE::FORWARD) {
-   
- 
-   
-   
+
    if (_mode == FOURIER_MODE::FORWARD) {
 	  std::cout << "FM:FORWARD" << std::endl;
 	  int AnzahlFunktionsWerte = _values.size();
@@ -281,11 +277,14 @@ int main() {
         compare_index_default = read_values_default.size();
     }
     double abweichung_ep_default = -1.0f;
+
+
     for (int i = 0; i < compare_index_default; ++i) {
-        if((original_values[i].abs()-retrans_values_default[i].abs()) > abweichung_ep_default){
-            abweichung_ep_default = (original_values[i].abs()-retrans_values_default[i].abs());
+        if((original_values[i]-retrans_values_default[i]).abs() > abweichung_ep_default){
+            abweichung_ep_default = (original_values[i]-retrans_values_default[i]).abs();
         }
     }
+
     std::cout<< "max abweichung -1.0 default ist " << abweichung_ep_default << std::endl;
   
   
@@ -297,14 +296,15 @@ int main() {
 	  compare_index_10 = read_values_10.size();
    }
   
-    double abweichung_ep_10 = -1.0f;;
+    double abweichung_ep_10 = -1.0f;
+
     for (int i = 0; i < compare_index_10; ++i) {
        //std::cout<<"ORIGINAL: " << original_values[i].abs();
 	   //std::cout<<"    Transformiert: " << retrans_values_10[i].abs();
 	   //std::cout<<std::endl;
 	   
-	   if(((original_values[i].abs()-retrans_values_10[i].abs())) < abweichung_ep_10){
-         abweichung_ep_10 = (original_values[i].abs()-retrans_values_10[i].abs());
+	   if(((original_values[i]-retrans_values_10[i]).abs()) < abweichung_ep_10){
+         abweichung_ep_10 = (original_values[i]-retrans_values_10[i]).abs();
          }
     }
     std::cout<< "max abweichung 1.0 ist " << abweichung_ep_10 << std::endl;
@@ -317,10 +317,10 @@ int main() {
    }
    
    
-   double abweichung_ep_01 = (original_values[0].abs()-retrans_values_01[0].abs());
+   double abweichung_ep_01 = (original_values[0]-retrans_values_01[0]).abs();
     for (int i = 0; i < compare_index_01; ++i) {
-        if((original_values[i].abs()-retrans_values_01[i].abs()) > abweichung_ep_01){
-            abweichung_ep_01 = (original_values[i].abs()-retrans_values_01[i].abs());
+        if((original_values[i]-retrans_values_01[i]).abs() > abweichung_ep_01){
+            abweichung_ep_01 = (original_values[i]-retrans_values_01[i]).abs();
         }
     }
     std::cout<< "max abweichung 0.1 ist " << abweichung_ep_01 << std::endl;

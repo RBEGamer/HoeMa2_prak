@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/marcelochsendorf/Desktop/MATHE_P5/lotto.cpp
+lotto.h
+/Users/marcelochsendorf/Desktop/MATHE_P5/lotto.h
+
+/Users/marcelochsendorf/Desktop/MATHE_P5/lotto.h
+magic_random.h
+/Users/marcelochsendorf/Desktop/MATHE_P5/magic_random.h
+vector
+-
+
+/Users/marcelochsendorf/Desktop/MATHE_P5/magic_random.cpp
+magic_random.h
+/Users/marcelochsendorf/Desktop/MATHE_P5/magic_random.h
+
+/Users/marcelochsendorf/Desktop/MATHE_P5/magic_random.h
+iostream
+-
+stdlib.h
+-
+vector
+-
+time.h
+-
+
+/Users/marcelochsendorf/Desktop/MATHE_P5/main.cpp
+iostream
+-
+magic_random.h
+/Users/marcelochsendorf/Desktop/MATHE_P5/magic_random.h
+vector
+-
+time.h
+-
+

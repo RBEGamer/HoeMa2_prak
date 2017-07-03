@@ -18,19 +18,20 @@ class lotto {
 public:
 
     struct TIPPZETTEL{
+    public:
         long gen_n;
         int numbers[TIPP_GROESSE];
+
+
     };
 
     lotto(int _n);
     void set_tippzettel(TIPPZETTEL& _ref);
     std::vector<TIPPZETTEL> make_ziehung(int _n = TIPP_FELDER);
-    bool check_tippzettel_geliche_zahlen(TIPPZETTEL& _a, TIPPZETTEL& _b);
-    bool check_tippzettel_gleicher_schein(TIPPZETTEL& _a, TIPPZETTEL& _b);
-    int make_ziehung_vergl_mit_schein(int _n);
 
 
-    int make_ziehung_vergl_geliche_zahlen(int _n);
+
+    std::vector<int> get_same_values(std::vector<TIPPZETTEL> _ziehung);
     magic_random rnd;
     TIPPZETTEL latest_tippzettel;
 

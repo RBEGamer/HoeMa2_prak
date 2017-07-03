@@ -16,6 +16,7 @@ void lotto::set_tippzettel(lotto::TIPPZETTEL& _ref){
 
 
 std::vector<lotto::TIPPZETTEL> lotto::make_ziehung(int _n){
+   std::vector<lotto::TIPPZETTEL> tmp_vec;
     for (int i = 0; i < _n; ++i) {
         lotto::TIPPZETTEL tmp;
         tmp.gen_n = rnd.current_n;
@@ -37,78 +38,34 @@ std::vector<lotto::TIPPZETTEL> lotto::make_ziehung(int _n){
                     break;
                 }
             }
-
         }
-
-
+        tmp_vec.push_back(tmp);
     }
-
-
-
-}
-
-//check lottozettel ob die gleichen zahlen vorkommen in beiden
-bool lotto::check_tippzettel_geliche_zahlen(lotto::TIPPZETTEL& _a, lotto::TIPPZETTEL& _b){
-volatile  bool t = false;
-    for (int i = 0; i < TIPP_GROESSE; ++i) {
-        t = false;
-        for (int j = 0; j < TIPP_GROESSE; ++j) {
-            if(_a.numbers[i] == _b.numbers[j]){t = true;}
-        }
-        if(t == false){
-            return false;
-        }
-    }
-    return true;
-}
-
-bool lotto::check_tippzettel_gleicher_schein(lotto::TIPPZETTEL& _a, lotto::TIPPZETTEL& _b){
-    for (int i = 0; i < TIPP_GROESSE; ++i) {
-      if(_a.numbers[i] != _b.numbers[i]){return false;}
-    }
-    return true;
-}
-
-//gebe anzahl zurück mit gleichem schein
-int lotto::make_ziehung_vergl_mit_schein(int _n){
-    std::vector<lotto::TIPPZETTEL> ziehung = make_ziehung(_n);
-    int counter = 0;
-    for (int i = 0; i < ziehung.size(); ++i) {
-if(check_tippzettel_gleicher_schein(ziehung[i], latest_tippzettel)){
-    counter++;
-}
-    }
+    return tmp_vec;
 }
 
 
 
-int lotto::make_ziehung_vergl_geliche_zahlen(int _n){
-
-    std::vector<lotto::TIPPZETTEL> z1 = make_ziehung(_n);
-    std::vector<lotto::TIPPZETTEL> z2 = make_ziehung(_n);
-
-    int counter = 0;
-    for (int j = 0; j < _n; ++j) {
-        for (int i = TIPP_MIN; i < TIPP_MAX; ++i) {
-
-            volatile bool is_zahl_in_z1 = false;
-            volatile bool is_zahl_in_z2 = false;
-
+std::vector<int> lotto::get_same_values(std::vector<lotto::TIPPZETTEL> _ziehung){
+std::vector<int> zahlen_drin;
+    for (int i = 0; i <_ziehung.size(); ++i) {
+        //gehe von 1 - 49
+        for (int j = TIPP_MIN; j < TIPP_MAX+1; ++j) {
+            volatile  bool is_in_saved = false;
+            volatile  bool is_in_extern = false;
             for (int k = 0; k < TIPP_GROESSE; ++k) {
-                if(z1[j].numbers[k] == i){
-                    is_zahl_in_z1 = true;
+                if(latest_tippzettel.numbers[k] == j){
+                    is_in_saved = true;
                 }
-                if(z2[j].numbers[k] == i){
-                    is_zahl_in_z2 = true;
+
+                if(_ziehung[i].numbers[k] == j){
+                    is_in_extern = true;
                 }
             }
-
-            if(is_zahl_in_z1 && is_zahl_in_z2){
-                //nummer i ist in beiden
-                counter++;
+            if(is_in_extern && is_in_saved){
+                zahlen_drin.push_back(j);
             }
-
         }
     }
-    return counter;
+    return zahlen_drin;
 }

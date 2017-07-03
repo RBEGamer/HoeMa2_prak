@@ -68,8 +68,16 @@ int main() {
 
     //3b
     {
+        lotto l(time(NULL));
 
-
+        int N = 100000;
+        int counter = 0;
+        for (int i = 0; i < N; ++i) {
+            if(l.get_count_of_same_values_of_two_trys() >= 3){
+                counter++;
+            }
+        }
+        std::cout << "3b) p(>=3 geliche) = Ng/N = " << ((float) counter / (float) N)*100.0f << "%" << std::endl;
 
 
 

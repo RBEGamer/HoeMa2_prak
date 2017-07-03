@@ -69,3 +69,31 @@ std::vector<int> zahlen_drin;
     }
     return zahlen_drin;
 }
+
+
+
+int lotto::get_count_of_same_values_of_two_trys(){
+    std::vector<lotto::TIPPZETTEL> z1 = make_ziehung(1);
+    std::vector<lotto::TIPPZETTEL> z2 = make_ziehung(1);
+
+    std::vector<int> ub_zahl;
+    int counter = 0;
+    for (int i = 0; i < 6; ++i) {
+        for (int j = 0; j < 6; ++j) {
+        if(z1[0].numbers[i] == z2[0].numbers[j]){
+            volatile  bool is_in = false;
+            for (int k = 0; k < ub_zahl.size(); ++k) {
+                if(z1[0].numbers[i] == ub_zahl[k]){
+                    is_in = true;
+                }
+            }
+
+            if(!is_in){
+                counter++;
+            }
+        }
+        }
+    }
+    
+return counter;
+}

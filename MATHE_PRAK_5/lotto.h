@@ -32,6 +32,7 @@ public:
 
 
     std::vector<int> get_same_values(std::vector<TIPPZETTEL> _ziehung);
+    int get_count_of_same_values_of_two_trys();
     magic_random rnd;
     TIPPZETTEL latest_tippzettel;
 

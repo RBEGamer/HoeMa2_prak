@@ -6,9 +6,9 @@
 
 
 
-lotto::lotto(int _n, int _m) {
+lotto::lotto(int _n) {
     rnd_n.initialisiere(_n); //die n<0 it ist im magic_random drin
-    rnd_m.initialisiere(_m);
+
 }
 
 void lotto::set_tippzettel(lotto::TIPPZETTEL& _ref){
@@ -20,7 +20,7 @@ std::vector<lotto::TIPPZETTEL> lotto::make_ziehung(int _n, bool _oth){
    std::vector<lotto::TIPPZETTEL> tmp_vec;
     for (int i = 0; i < _n; ++i) {
         lotto::TIPPZETTEL tmp;
-        if(_oth){tmp.gen_n = rnd_m.current_n;}else{tmp.gen_n = rnd_n.current_n;}
+        tmp.gen_n = rnd_n.current_n;
 
 
 
@@ -30,7 +30,7 @@ std::vector<lotto::TIPPZETTEL> lotto::make_ziehung(int _n, bool _oth){
             while(true) {
                 volatile  bool is_in = false;
                 int w = 0;
-                if(_oth){w = rnd_m.wert(1, 49);}else{w = rnd_n.wert(1, 49);}
+               w = rnd_n.wert(1, 49);
                 for (int k = 0; k < TIPP_GROESSE; ++k) {
                     if(w == tmp.numbers[k]){
                         is_in = true;

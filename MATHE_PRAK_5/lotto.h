@@ -25,7 +25,7 @@ public:
 
     };
 
-    lotto(int _n, int _m);
+    lotto(int _n);
     void set_tippzettel(TIPPZETTEL& _ref);
     std::vector<TIPPZETTEL> make_ziehung(int _n = TIPP_FELDER, bool _oth = true);
 

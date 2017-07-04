@@ -46,7 +46,7 @@ int saved_t = time(NULL);
 
     {
         //3a
-        lotto l(time(NULL), saved_t);
+        lotto l(time(NULL));
         //erstelle festen tippschein
         lotto::TIPPZETTEL tippschein_fest;
         tippschein_fest.gen_n = l.rnd_n.current_n;
@@ -75,7 +75,7 @@ int saved_t = time(NULL);
 
     //3b
     {
-        lotto l(time(NULL),saved_t);
+        lotto l(time(NULL));
 
         int N = 10000;
         int counter = 0;

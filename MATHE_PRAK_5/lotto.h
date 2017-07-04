@@ -11,7 +11,7 @@
 
 #define TIPP_GROESSE 6
 #define TIPP_FELDER 12
-
+#define zlehungen latest_tippzettel
 #define TIPP_MIN 1
 #define TIPP_MAX 49
 class lotto {
@@ -21,23 +21,16 @@ public:
     public:
         long gen_n;
         int numbers[TIPP_GROESSE];
-
-
     };
 
-    lotto(int _n);
-    void set_tippzettel(TIPPZETTEL& _ref);
-    std::vector<TIPPZETTEL> make_ziehung(int _n = TIPP_FELDER, bool _oth = true);
-
-
-
-    //std::vector<int> get_same_values(std::vector<TIPPZETTEL> _ziehung, TIPPZETTEL fixed);
-    std::vector<int> get_same_values(std::vector<lotto::TIPPZETTEL> _ziehung, lotto::TIPPZETTEL fixed);
-
-    int get_count_of_same_values_of_two_trys();
-    magic_random rnd_n;
-    magic_random rnd_m;
-    TIPPZETTEL latest_tippzettel;
+public:
+    lotto(int n);
+    void tipp(int t1, int t2, int t3, int t4, int t5, int t6);
+    int tippZiehung();
+    int ziehungenVergleich();
+private:
+    std::vector<int> tippzettel;
+    std::vector<int> ziehung();
 
 };
 

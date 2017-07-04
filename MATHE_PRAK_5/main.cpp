@@ -5,93 +5,39 @@
 #include <time.h>
 #include "lotto.h"
 
- void a1(){
-
-     magic_random rnd;
-
-    int min = 3;
-    int max = 7;
-    int count =10000;
-    int n = 5;
-
-
-     //rnd.initialisiere(time(NULL));
-     //rnd.initialisiere(n);
-    std::vector<int> test_h = rnd.test(min,max,count);
-    for (int i = min; i < max; ++i) {
-        std::cout << "" << i << " " << test_h[i] << "x  n=" << n;
-    }
-
-
-
-     std::cout << "e)" << std::endl;
-    test_h = rnd.testfalsch(min,max,count);
-    for (int i = min; i < max; ++i) {
-        std::cout << "" << i << " " << test_h[i] << "x  n=" << n;
-    }
-
-
-
-}
-
 
 
 
 
 int main() {
-//a1();
-
-int saved_t = time(NULL);
 
 
+    lotto lotto(time(NULL));
+//3a
+    lotto.tipp(9, 10, 11, 22, 23, 24);
+    int count_3a = 0;
+    for (int i = 0; i < 10000; i++)
     {
-        //3a
-        lotto l(time(NULL));
-        //erstelle festen tippschein
-        lotto::TIPPZETTEL tippschein_fest;
-        tippschein_fest.gen_n = l.rnd_n.current_n;
-        tippschein_fest.numbers[0] = 2;
-        tippschein_fest.numbers[1] = 45;
-        tippschein_fest.numbers[2] = 22;
-        tippschein_fest.numbers[3] = 32;
-        tippschein_fest.numbers[4] = 23;
-        tippschein_fest.numbers[5] = 7;
-
-
-        int is_in_couter = 0;
-        int N = 100000;
-        for (int i = 0; i < N; ++i) {
-            //mache eine zeihung
-            lotto::TIPPZETTEL ziehung = l.make_ziehung(1)[0];
-            //gebe gleiche zahlen aus
-            std::vector<int> z1 = l.get_same_values(l.make_ziehung(1),tippschein_fest);
-            if (z1.size() >= 3) {
-                is_in_couter++;
-            }
+        if (lotto.tippZiehung() == 3)
+        {
+            count_3a++;
         }
-        std::cout << "3a) p(>=3 geliche) = Ng/N = " << ((float) is_in_couter / (float) N)*100.0f+0.0f << "%" << std::endl;
     }
+    std::cout << "3a) Die Wahrscheinlichkeit liegt damit bei "  << (double(count_3a)/ 10000.0)*100.0f << "%" << std::endl;
 
 
-    //3b
+
+
+//3b
+    int count_3b = 0;
+    for (int i = 0; i < 10000; i++)
     {
-        lotto l(time(NULL));
-
-        int N = 10000;
-        int counter = 0;
-        for (int i = 0; i < N; ++i) {
-            if(l.get_count_of_same_values_of_two_trys() == 3){
-                counter++;
-            }
+        if (lotto.ziehungenVergleich() == 3)
+        {
+            count_3b++;
         }
-        std::cout << "3b) p(==3 geliche) = Ng/N = " << (((float) counter / (float) N))*100.0f+1.0f << "%" << std::endl;
-
-
-
-
-
     }
-
+    std::cout << "3b) Die Wahrscheinlichkeit liegt damit bei " << (double(count_3b) / 10000.0)*100.0f << "%" << std::endl;
 
     return 0;
 }

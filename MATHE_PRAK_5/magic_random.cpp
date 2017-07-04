@@ -1,46 +1,36 @@
-//
-// Created by Marcel Ochsendorf on 01.07.17.
-//
-
 #include "magic_random.h"
 
-
-magic_random::magic_random(){}
-magic_random::magic_random(int _n){}
-
-int magic_random::wert(int _a, int _b){
-return rand() % _b + _a;
+void magic_random::initialisiere(int n)
+{
+    srand(n);
 }
 
-void magic_random::initialisiere(int _n){
-    current_n = _n;
-    if(_n < 0){
-        _n = time(NULL);
-        srand(current_n);
-    }else {
-        srand(_n);
+int magic_random::wert(int a, int b)
+{
+    if (a > b)
+    {
+        return NULL;
     }
+    return (rand() % (b-a+1)) + a;
 }
 
-std::vector<int> magic_random::test(int _a, int _b, int _N){
-_b++;
-    std::vector<int> tmp_vork;
-    tmp_vork.clear();
-    for (int i = 0; i < _b; ++i) {
-        tmp_vork.push_back(0);
+std::vector<int> magic_random::test(int a, int b, int N)
+{
+    std::vector<int> values = std::vector<int>((b - a) + 1,0);
+    for (int i = 0; i < N; i++)
+    {
+        values[wert(a, b) - a]++;
     }
+    return values;
+}
 
-    for (int j = 0; j < _N; ++j) {
-        int index =   wert(_a,_b);
-     tmp_vork[index]++;
+std::vector<int> magic_random::test_falsch(int a, int b, int N)
+{
+    std::vector<int> values = std::vector<int>((b - a) + 1, 0);
+    for (int i = 0; i < N; i++)
+    {
+        srand(time(NULL));
+        values[wert(a, b) - a]++;
     }
-    return  tmp_vork;
+    return values;
 }
-
-
-std::vector<int> magic_random::testfalsch(int a, int b, int N){
-    initialisiere(time(NULL));
-    return test(a,b,N);
-}
-
-

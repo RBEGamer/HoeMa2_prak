@@ -25,15 +25,18 @@ public:
 
     };
 
-    lotto(int _n);
+    lotto(int _n, int _m);
     void set_tippzettel(TIPPZETTEL& _ref);
-    std::vector<TIPPZETTEL> make_ziehung(int _n = TIPP_FELDER);
+    std::vector<TIPPZETTEL> make_ziehung(int _n = TIPP_FELDER, bool _oth = true);
 
 
 
-    std::vector<int> get_same_values(std::vector<TIPPZETTEL> _ziehung);
+    //std::vector<int> get_same_values(std::vector<TIPPZETTEL> _ziehung, TIPPZETTEL fixed);
+    std::vector<int> get_same_values(std::vector<lotto::TIPPZETTEL> _ziehung, lotto::TIPPZETTEL fixed);
+
     int get_count_of_same_values_of_two_trys();
-    magic_random rnd;
+    magic_random rnd_n;
+    magic_random rnd_m;
     TIPPZETTEL latest_tippzettel;
 
 };

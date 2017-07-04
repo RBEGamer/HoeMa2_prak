@@ -6,8 +6,9 @@
 
 
 
-lotto::lotto(int _n) {
-    rnd.initialisiere(_n); //die n<0 it ist im magic_random drin
+lotto::lotto(int _n, int _m) {
+    rnd_n.initialisiere(_n); //die n<0 it ist im magic_random drin
+    rnd_m.initialisiere(_m);
 }
 
 void lotto::set_tippzettel(lotto::TIPPZETTEL& _ref){
@@ -15,11 +16,12 @@ void lotto::set_tippzettel(lotto::TIPPZETTEL& _ref){
 }
 
 
-std::vector<lotto::TIPPZETTEL> lotto::make_ziehung(int _n){
+std::vector<lotto::TIPPZETTEL> lotto::make_ziehung(int _n, bool _oth){
    std::vector<lotto::TIPPZETTEL> tmp_vec;
     for (int i = 0; i < _n; ++i) {
         lotto::TIPPZETTEL tmp;
-        tmp.gen_n = rnd.current_n;
+        if(_oth){tmp.gen_n = rnd_m.current_n;}else{tmp.gen_n = rnd_n.current_n;}
+
 
 
         for (int j = 0; j < TIPP_GROESSE; ++j) {
@@ -27,7 +29,8 @@ std::vector<lotto::TIPPZETTEL> lotto::make_ziehung(int _n){
 
             while(true) {
                 volatile  bool is_in = false;
-                int w = rnd.wert(1, 49);
+                int w = 0;
+                if(_oth){w = rnd_m.wert(1, 49);}else{w = rnd_n.wert(1, 49);}
                 for (int k = 0; k < TIPP_GROESSE; ++k) {
                     if(w == tmp.numbers[k]){
                         is_in = true;
@@ -46,15 +49,20 @@ std::vector<lotto::TIPPZETTEL> lotto::make_ziehung(int _n){
 
 
 
-std::vector<int> lotto::get_same_values(std::vector<lotto::TIPPZETTEL> _ziehung){
-std::vector<int> zahlen_drin;
+
+
+
+
+
+std::vector<int> lotto::get_same_values(std::vector<lotto::TIPPZETTEL> _ziehung, lotto::TIPPZETTEL fixed){
+   std::vector<int> zahlen_drin;
     for (int i = 0; i <_ziehung.size(); ++i) {
         //gehe von 1 - 49
         for (int j = TIPP_MIN; j < TIPP_MAX+1; ++j) {
             volatile  bool is_in_saved = false;
             volatile  bool is_in_extern = false;
             for (int k = 0; k < TIPP_GROESSE; ++k) {
-                if(latest_tippzettel.numbers[k] == j){
+                if(fixed.numbers[k] == j){
                     is_in_saved = true;
                 }
 
@@ -73,27 +81,19 @@ std::vector<int> zahlen_drin;
 
 
 int lotto::get_count_of_same_values_of_two_trys(){
-    std::vector<lotto::TIPPZETTEL> z1 = make_ziehung(1);
-    std::vector<lotto::TIPPZETTEL> z2 = make_ziehung(1);
+//return get_same_values(make_ziehung(1, true)[0],make_ziehung(1, false)[0]).size();
 
-    std::vector<int> ub_zahl;
-    int counter = 0;
+
+    std::vector<int> res;
     for (int i = 0; i < 6; ++i) {
         for (int j = 0; j < 6; ++j) {
-        if(z1[0].numbers[i] == z2[0].numbers[j]){
-            volatile  bool is_in = false;
-            for (int k = 0; k < ub_zahl.size(); ++k) {
-                if(z1[0].numbers[i] == ub_zahl[k]){
-                    is_in = true;
-                }
+            if(make_ziehung(1, true)[0].numbers[i] == make_ziehung(1, false)[0].numbers[j]){
+                res.push_back(make_ziehung(1, false)[0].numbers[i] );
             }
+        }
 
-            if(!is_in){
-                counter++;
-            }
-        }
-        }
     }
-    
-return counter;
+    return res.size();
+
+
 }
